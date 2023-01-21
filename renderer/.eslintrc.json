@@ -1,0 +1,46 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["import", "@typescript-eslint"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "createDefaultProgram": true,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "jsx-quotes": 0,
+    "import/no-unresolved": 0,
+    "import/no-cycle": 0,
+    "react/react-in-jsx-scope": 0,
+    "react-hooks/exhaustive-deps": "warn",
+    "react/require-default-props": 0,
+    "@typescript-eslint/indent": 0
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx", ".js"]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
