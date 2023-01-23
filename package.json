@@ -8,25 +8,24 @@
   "scripts": {
     "dev": "nextron",
     "build": "nextron build",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "build:win64": "nextron build --win --x64",
+    "build:mac": "nextron build --mac --x64"
   },
   "dependencies": {
     "electron-serve": "^1.1.0",
-    "electron-store": "^8.1.0",
-    "next": "^12.3.4",
-    "nextron": "^8.4.0",
-    "antd": "^4.22.8",
-    "electron": "^21.3.3",
-    "electron-builder": "^23.6.0",
-    "@ant-design/icons": "^4.7.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "electron-store": "^8.1.0"
   },
   "devDependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@types/firebase": "^3.2.1",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
+    "antd": "^4.22.8",
+    "electron": "^21.3.3",
+    "electron-builder": "^23.6.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -36,7 +35,12 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "firebase": "^9.16.0",
+    "next": "^12.3.4",
+    "nextron": "^8.4.0",
     "prettier": "^2.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^4.9.4"
   }
 }

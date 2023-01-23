@@ -33,7 +33,8 @@
     "react/react-in-jsx-scope": 0,
     "react-hooks/exhaustive-deps": "warn",
     "react/require-default-props": 0,
-    "@typescript-eslint/indent": 0
+    "@typescript-eslint/indent": 0,
+    "import/no-extraneous-dependencies": 0
   },
   "settings": {
     "import/parsers": {
