@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { collection, getDocs } from 'firebase/firestore';
 
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from 'src/commons/settings/firebaseConfig';
+import withAuth from 'src/commons/utils/withAuth';
 
 function Home() {
   const handleClick = async () => {
@@ -21,4 +22,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withAuth(Home);
