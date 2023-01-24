@@ -43,6 +43,7 @@ export default function RegisterUserContainer() {
       <S.RegisterFormWrapper>
         <InputWrapper>
           <NormalInput
+            type='email'
             name='email'
             control={control}
             placeholder='이메일을 입력해 주세요.'
@@ -63,6 +64,7 @@ export default function RegisterUserContainer() {
 
         <InputWrapper>
           <NormalInput
+            type='password'
             name='password'
             control={control}
             placeholder='비밀번호를 입력해 주세요.'
@@ -74,6 +76,7 @@ export default function RegisterUserContainer() {
 
         <InputWrapper>
           <NormalInput
+            type='password'
             name='passwordCheck'
             control={control}
             placeholder='비밀번호를 다시 입력해 주세요.'

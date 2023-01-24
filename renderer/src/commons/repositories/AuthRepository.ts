@@ -14,7 +14,7 @@ export default class AuthRepository implements IAuthRepository {
   }
 
   async login(args: LoginArgsType) {
-    // TODO : 로그인 기능 구현
+    return this.authDataSource.login(args);
   }
 
   async logout() {

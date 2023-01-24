@@ -51,14 +51,36 @@ export default class AuthDataSource {
   }
 
   /**
+   * 로그인
+   * @param 이메일, 비밀번호
+   */
+  async login({ email, password }: LoginArgsType) {
+    try {
+      await signInWithEmailAndPassword(this.firebaseAuth, email, password);
+    } catch (e) {
+      if (e instanceof Error) {
+        throw Error(this.changeErrorMessage(e.message));
+      }
+    }
+  }
+
+  /**
    * 파이어 베이스 에러 메세지를 한글로 전환
    * @param message
    * @returns 한글 에러 메세지
    */
   private changeErrorMessage(message: string) {
     if (message.includes('이미 존재하는 닉네임입니다.')) return message;
+
     if (message.includes('(auth/email-already-in-use)'))
       return '이미 존재하는 계정입니다.';
+
+    if (message.includes('(auth/user-not-found)'))
+      return '존재하지 않는 사용자입니다.';
+
+    if (message.includes('(auth/wrong-password)'))
+      return '이메일 또는 비밀번호가 일치하지 않습니다.';
+
     return '오류가 발생했습니다. 관리자에게 문의하세요.';
   }
 
