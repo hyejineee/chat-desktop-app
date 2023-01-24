@@ -1,7 +1,15 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "@repositories/*": ["src/commons/repositories/*"],
+      "@dataSources/*": ["src/commons/dataSources/*"],
+      "@constants/*": ["src/commons/constants/*"],
+      "@contexts/*": ["src/commons/contexts/*"],
+      "@type/*": ["src/commons/type/*"],
+      "@utils/*": ["src/commons/utils/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
