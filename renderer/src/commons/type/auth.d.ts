@@ -1,17 +1,17 @@
 export interface IAuthRepository {
   login: (args: LoginArgsType) => Promise<void>;
-  logout: () => Promise<void>;
+  logout: () => void;
   registerUser: (args: RegisterUserArgsType) => Promise<void>;
   checkLoggedIn: () => Promise<boolean>;
-  fetchLoggedInUser: () => Promise<UserType>;
+  fetchLoggedInUser: () => UserType | null;
 }
 
 export interface IAuthContext {
   login: (args: LoginArgsType) => Promise<void>;
-  logout: () => Promise<void>;
+  logout: () => void;
   registerUser: (args: RegisterUserArgsType) => Promise<void>;
   checkLoggedIn: () => Promise<boolean>;
-  fetchLoggedInUser: () => Promise<UserType>;
+  fetchLoggedInUser: () => UserType | null;
 }
 
 export type UserType = {

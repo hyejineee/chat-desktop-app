@@ -2,6 +2,7 @@ import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 import { LoginArgsType, RegisterUserArgsType, UserType } from '@type/auth';
 import {
@@ -86,6 +87,13 @@ export default class AuthDataSource {
     if (!user.exists()) throw Error('유저 정보를 찾을 수 없습니다.');
 
     return { ...user.data(), uid } as UserType;
+  }
+
+  /**
+   * 로그아웃
+   */
+  async logout() {
+    await signOut(this.firebaseAuth);
   }
 
   /**

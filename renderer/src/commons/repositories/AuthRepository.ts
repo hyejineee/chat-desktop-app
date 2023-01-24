@@ -19,8 +19,9 @@ export default class AuthRepository implements IAuthRepository {
     return this.authDataSource.login(args);
   }
 
-  async logout() {
-    // TODO : 로그아웃 기능 구현
+  logout() {
+    this.loggedInUser = null;
+    this.authDataSource.logout();
   }
 
   registerUser(args: RegisterUserArgsType) {
@@ -28,9 +29,9 @@ export default class AuthRepository implements IAuthRepository {
   }
 
   async checkLoggedIn() {
-    if (this.loggedInUser) return true;
-
     const user = this.authDataSource.checkLoggedIn();
+
+    if (user !== null && this.loggedInUser) return true;
 
     if (user !== null && this.loggedInUser === null && user?.uid) {
       const fetchUser = await this.authDataSource.fetchUser(user.uid);
@@ -38,11 +39,12 @@ export default class AuthRepository implements IAuthRepository {
       return true;
     }
 
+    this.loggedInUser = null;
+
     return false;
   }
 
-  async fetchLoggedInUser() {
-    // TODO : 로그인되어 있는 유저 정보 가져오기
-    return {} as UserType;
+  fetchLoggedInUser() {
+    return this.loggedInUser;
   }
 }
