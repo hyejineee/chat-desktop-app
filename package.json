@@ -24,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "antd": "^4.22.8",
+    "constate": "^3.3.2",
     "electron": "^21.3.3",
     "electron-builder": "^23.6.0",
     "eslint": "^8.2.0",
