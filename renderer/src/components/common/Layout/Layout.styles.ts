@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
 `;
 
 export const MenuWrapper = styled.nav`
-  background-color: aliceblue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +14,5 @@ export const MenuWrapper = styled.nav`
 
 export const ContentsWrapper = styled.section`
   flex: 5;
-  background-color: antiquewhite;
   padding: 16px;
 `;
