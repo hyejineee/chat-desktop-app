@@ -7,8 +7,6 @@ import { LOGIN_PAGE } from '@constants/paths';
 import { useCheckLoggedIn } from '@contexts/AuthContext';
 
 const withAuth = (Component: any) => (pageProps: AppProps) => {
-  console.log('with auth');
-
   const router = useRouter();
   const checkLoggedIn = useCheckLoggedIn();
 

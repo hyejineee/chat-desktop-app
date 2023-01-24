@@ -9,6 +9,8 @@ import {
 export default class AuthRepository implements IAuthRepository {
   private authDataSource: AuthDataSource;
 
+  private loggedInUser: UserType | null = null;
+
   constructor(dataSource: AuthDataSource) {
     this.authDataSource = dataSource;
   }
@@ -26,7 +28,16 @@ export default class AuthRepository implements IAuthRepository {
   }
 
   async checkLoggedIn() {
-    // TODO : 로그인 여부 확인하기
+    if (this.loggedInUser) return true;
+
+    const user = this.authDataSource.checkLoggedIn();
+
+    if (user !== null && this.loggedInUser === null && user?.uid) {
+      const fetchUser = await this.authDataSource.fetchUser(user.uid);
+      this.loggedInUser = fetchUser;
+      return true;
+    }
+
     return false;
   }
 

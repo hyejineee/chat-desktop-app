@@ -3,7 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { LoginArgsType, RegisterUserArgsType } from '@type/auth';
+import { LoginArgsType, RegisterUserArgsType, UserType } from '@type/auth';
 import {
   collection,
   doc,
@@ -12,6 +12,7 @@ import {
   query,
   setDoc,
   where,
+  getDoc,
 } from 'firebase/firestore';
 
 export default class AuthDataSource {
@@ -65,6 +66,29 @@ export default class AuthDataSource {
   }
 
   /**
+   * 현재 사용자가 로그인 되어 있는지 확인
+   * @returns 로그인 되어 있는 사용자 계정 정보
+   */
+  checkLoggedIn() {
+    return this.firebaseAuth.currentUser;
+  }
+
+  /**
+   * 사용자 전체 데이터 가져오기
+   * @param uid 사용자의 uid
+   * @returns 사용자의 전체 데이터
+   */
+  async fetchUser(uid: string) {
+    const user = await getDoc(
+      doc(this.firebaseStore, this.collectionName, uid),
+    );
+
+    if (!user.exists()) throw Error('유저 정보를 찾을 수 없습니다.');
+
+    return { ...user.data(), uid } as UserType;
+  }
+
+  /**
    * 파이어 베이스 에러 메세지를 한글로 전환
    * @param message
    * @returns 한글 에러 메세지
@@ -110,8 +134,6 @@ export default class AuthDataSource {
     );
 
     const users = await getDocs(q);
-
-    console.log(users.size);
 
     return users.size !== 0;
   }
