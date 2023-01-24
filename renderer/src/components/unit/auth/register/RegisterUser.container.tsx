@@ -1,9 +1,8 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LOGIN_PAGE } from '@constants/paths';
 import { useRegisterUser } from '@contexts/AuthContext';
 import { RegisterUserArgsType } from '@type/auth';
 import { Button } from 'antd';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerUserSchema } from '@utils/yupSchema';
@@ -35,6 +34,7 @@ export default function RegisterUserContainer() {
       router.replace(LOGIN_PAGE);
     } catch (e) {
       // TODO : 에러 메세지 띄우기
+      console.log(e);
     }
   });
 
