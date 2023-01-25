@@ -1,7 +1,8 @@
 import withAuth from '@utils/withAuth';
+import ChatListContainer from 'src/components/unit/chat/ChatList.container';
 
-function ChatPage() {
-  return <div>채팅 목록 페이지</div>;
+function ChatListPage() {
+  return <ChatListContainer />;
 }
 
-export default withAuth(ChatPage);
+export default withAuth(ChatListPage);

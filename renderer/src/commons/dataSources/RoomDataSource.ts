@@ -1,12 +1,15 @@
 import {
   addDoc,
+  arrayUnion,
   collection,
+  doc,
   DocumentData,
   Firestore,
   getDocs,
   limit,
   query,
   QueryDocumentSnapshot,
+  updateDoc,
   where,
 } from 'firebase/firestore';
 
@@ -42,6 +45,8 @@ export default class RoomDataSource {
       messages: [{}],
     });
 
+    await this.enterUserIntoRoom([uid, pairUid], roomDocRef.id);
+
     return roomDocRef.id;
   }
 
@@ -58,7 +63,24 @@ export default class RoomDataSource {
       messages: [{}],
     });
 
+    await this.enterUserIntoRoom([...uids, ownerUid], roomDocRef.id);
+
     return roomDocRef.id;
+  }
+
+  /**
+   * 사용자의 rooms 필드에 room uid 추가
+   * @param uids
+   * @param roomId
+   */
+  private async enterUserIntoRoom(uids: string[], roomId: string) {
+    await Promise.all(
+      uids.map(uid =>
+        updateDoc(doc(this.store, 'Users', uid), {
+          rooms: arrayUnion(roomId),
+        }),
+      ),
+    );
   }
 
   /**
