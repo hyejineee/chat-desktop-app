@@ -4,6 +4,9 @@ import { useFetchAllUser, useUserList } from '@contexts/UserContext';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import UserItem from 'src/components/common/items/UserItem';
+import { TitleText } from 'src/components/common/styles/common.styles';
+import UserListUI from './UserList.presenter';
+
 
 export default function UserListContainer() {
   const router = useRouter();
@@ -26,14 +29,9 @@ export default function UserListContainer() {
   }, []);
 
   return (
-    <div>
-      {(userList || []).map(user => (
-        <UserItem key={user.uid} user={user}>
-          <button type='button' onClick={handleClickPersonalChat(user.uid)}>
-            <SendOutlined />
-          </button>
-        </UserItem>
-      ))}
-    </div>
+    <UserListUI
+      userList={userList}
+      onClickPersonalChat={handleClickPersonalChat}
+    />
   );
 }

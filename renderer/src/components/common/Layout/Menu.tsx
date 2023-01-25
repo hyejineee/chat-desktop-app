@@ -42,10 +42,10 @@ export default function Menu() {
   return (
     <AntdMenu
       mode='inline'
-      theme='dark'
       inlineCollapsed
       items={items}
       onClick={handleClickMenuItem}
+      style={{ height: '100%' }}
     />
   );
 }

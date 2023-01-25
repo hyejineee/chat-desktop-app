@@ -15,4 +15,5 @@ export const MenuWrapper = styled.nav`
 export const ContentsWrapper = styled.section`
   flex: 5;
   padding: 16px;
+  padding-left: 28px;
 `;
