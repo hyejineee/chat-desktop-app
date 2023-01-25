@@ -9,6 +9,7 @@ const useRoomContext: (props: UseRoomContextPropsType) => IRoomContext = ({
   roomRepository,
 }: UseRoomContextPropsType) => {
   const [userRooms, setUserRooms] = useState<RoomType[] | null>(null);
+  const [openRooms, setOpenRooms] = useState<RoomType[] | null>(null);
 
   const createPersonalChatRoom = (pairUid: string) =>
     roomRepository.createPersonalChatRoom(pairUid);
@@ -18,15 +19,16 @@ const useRoomContext: (props: UseRoomContextPropsType) => IRoomContext = ({
 
   const fetchAllChatRoomsByUser = async () => {
     const rooms = await roomRepository.fetchAllChatRoomsByUser();
-    console.log('room context', rooms);
-    setUserRooms([...rooms]);
+    setUserRooms(rooms);
   };
 
   const fetchOpenChatRooms = async () => {
-    await roomRepository.fetchOpenChatRooms();
+    const rooms = await roomRepository.fetchOpenChatRooms();
+    setOpenRooms(rooms);
   };
   return {
     userRooms,
+    openRooms,
     createPersonalChatRoom,
     createOpenChatRoom,
     fetchAllChatRoomsByUser,
@@ -37,6 +39,7 @@ const useRoomContext: (props: UseRoomContextPropsType) => IRoomContext = ({
 export const [
   RoomProvider,
   useUserRooms,
+  useOpenRooms,
   useCreatePersonalChatRoom,
   useCreateOpenChatRoom,
   useFetchAllChatRoomsByUser,
@@ -44,6 +47,7 @@ export const [
 ] = constate(
   useRoomContext,
   value => value.userRooms,
+  value => value.openRooms,
   value => value.createPersonalChatRoom,
   value => value.createOpenChatRoom,
   value => value.fetchAllChatRoomsByUser,

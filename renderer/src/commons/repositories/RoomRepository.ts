@@ -21,7 +21,7 @@ export default class RoomRepository implements IRoomRepository {
   }
 
   async fetchOpenChatRooms() {
-    return [{} as RoomType];
+    return this.roomDataSource.fetchOpenChatRooms();
   }
 
   async createOpenChatRoom(uids: string[], title: string) {

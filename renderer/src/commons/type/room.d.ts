@@ -7,6 +7,7 @@ export interface IRoomRepository {
 
 export interface IRoomContext {
   userRooms: RoomType[] | null;
+  openRooms: RoomType[] | null;
   createPersonalChatRoom: (pairUid: string) => Promise<string>;
   createOpenChatRoom: (uids: string[], title: string) => Promise<string>;
   fetchAllChatRoomsByUser: () => Promise<void>;

@@ -19,8 +19,6 @@ export default function ChatListContainer() {
     fetchAllRooms();
   }, []);
 
-  console.log(userRooms);
-
   return (
     <div>
       채팅 방 목록 페이지
