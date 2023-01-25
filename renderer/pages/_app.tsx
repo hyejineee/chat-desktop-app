@@ -15,13 +15,22 @@ import UserDataSource from '@dataSources/UserDataSource';
 import { RoomProvider } from '@contexts/RoomContext';
 import RoomRepository from '@repositories/RoomRepository';
 import RoomDataSource from '@dataSources/RoomDataSource';
+import { MessageProvider } from '@contexts/MessageContext';
+import MessageDataSource from '@dataSources/MessageDataSource';
+import MessageRepository from '@repositories/MessageRepository';
 
 const authDataSource = new AuthDataSource(auth, db);
 const userDataSource = new UserDataSource(db);
 const roomDataSource = new RoomDataSource(db);
+const messageDataSource = new MessageDataSource(db);
+
 const authRepository = new AuthRepository(authDataSource);
 const userRepository = new UserRepository(userDataSource, authRepository);
 const roomRepository = new RoomRepository(roomDataSource, authRepository);
+const messageRepository = new MessageRepository(
+  messageDataSource,
+  authRepository,
+);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -33,9 +42,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <AuthProvider authRepository={authRepository}>
         <UserProvider userRepository={userRepository}>
           <RoomProvider roomRepository={roomRepository}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <MessageProvider messageRepository={messageRepository}>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </MessageProvider>
           </RoomProvider>
         </UserProvider>
       </AuthProvider>

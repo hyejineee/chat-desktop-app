@@ -1,9 +1,11 @@
 import { useCreatePersonalChatRoom } from '@contexts/RoomContext';
 import { useFetchAllUser, useUserList } from '@contexts/UserContext';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import UserItem from './item/UserItem';
 
 export default function UserListContainer() {
+  const router = useRouter();
   const userList = useUserList();
   const fetchAllUser = useFetchAllUser();
   const createPersonalChatRoom = useCreatePersonalChatRoom();
@@ -11,10 +13,10 @@ export default function UserListContainer() {
   const handleClickPersonalChat = (uid: string) => async () => {
     try {
       const roomId = await createPersonalChatRoom(uid);
-      console.log(roomId);
+
+      router.push(`/chat/${roomId}?type=personal`);
     } catch (e) {
       // TODO : 에러 메세지 출력
-      console.log('userList', e);
     }
   };
 
@@ -25,7 +27,11 @@ export default function UserListContainer() {
   return (
     <div>
       {(userList || []).map(user => (
-        <UserItem user={user} onClickChat={handleClickPersonalChat(user.uid)} />
+        <UserItem
+          key={user.uid}
+          user={user}
+          onClickChat={handleClickPersonalChat(user.uid)}
+        />
       ))}
     </div>
   );
