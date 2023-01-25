@@ -126,6 +126,7 @@ export default class AuthDataSource {
     await setDoc(doc(this.firebaseStore, this.collectionName, uid), {
       email,
       nickName,
+      uid,
       rooms: [],
     });
   }

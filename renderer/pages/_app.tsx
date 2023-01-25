@@ -9,10 +9,16 @@ import { AuthProvider } from '@contexts/AuthContext';
 import AuthRepository from '@repositories/AuthRepository';
 import AuthDataSource from '@dataSources/AuthDataSource';
 import { auth, db } from 'src/commons/settings/firebaseConfig';
+import { UserProvider } from '@contexts/UserContext';
+import UserRepository from '@repositories/UserRepository';
+import UserDataSource from '@dataSources/UserDataSource';
+
+const authDataSource = new AuthDataSource(auth, db);
+const userDataSource = new UserDataSource(db);
+const authRepository = new AuthRepository(authDataSource);
+const userRepository = new UserRepository(userDataSource, authRepository);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const authDataSource = new AuthDataSource(auth, db);
-  const authRepository = new AuthRepository(authDataSource);
   return (
     <>
       <Head>
@@ -20,9 +26,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <AuthProvider authRepository={authRepository}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <UserProvider userRepository={userRepository}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </UserProvider>
       </AuthProvider>
     </>
   );

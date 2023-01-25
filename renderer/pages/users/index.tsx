@@ -1,7 +1,8 @@
 import withAuth from '@utils/withAuth';
+import UserListContainer from 'src/components/unit/users/UserList.container';
 
 function UsersPage() {
-  return <div>유저 목록 페이지</div>;
+  return <UserListContainer />;
 }
 
 export default withAuth(UsersPage);

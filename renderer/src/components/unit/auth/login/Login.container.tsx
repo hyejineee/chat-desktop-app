@@ -9,11 +9,14 @@ import { loginSchema } from '@utils/yupSchema';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import NormalInput from 'src/components/common/inputs/NormalInput/NormalInput';
-import { InputWrapper } from 'src/components/common/styles/common.styles';
+import {
+  ErrorText,
+  InputWrapper,
+} from 'src/components/common/styles/common.styles';
 import * as S from './Login.styles';
 
 export default function LoginContainer() {
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, formState } = useForm({
     resolver: yupResolver(loginSchema),
     mode: 'onChange',
   });
@@ -42,6 +45,7 @@ export default function LoginContainer() {
             placeholder='이메일을 입력해 주세요.'
             prefix={<UserOutlined />}
           />
+          <ErrorText>{String(formState.errors.email?.message || '')}</ErrorText>
         </InputWrapper>
 
         <InputWrapper marginBottom={32}>
@@ -52,6 +56,9 @@ export default function LoginContainer() {
             placeholder='비밀번호를 입력해 주세요.'
             prefix={<LockOutlined />}
           />
+          <ErrorText>
+            {String(formState.errors.password?.message || '')}
+          </ErrorText>
         </InputWrapper>
 
         <S.ButtonWrapper>
