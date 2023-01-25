@@ -27,5 +27,3 @@ export const NickNameWrapper = styled.div`
   font-weight: 500;
   flex: 1;
 `;
-
-export const DMIconWrapper = styled.button``;

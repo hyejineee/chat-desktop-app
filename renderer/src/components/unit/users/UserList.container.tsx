@@ -1,8 +1,9 @@
+import { SendOutlined } from '@ant-design/icons';
 import { useCreatePersonalChatRoom } from '@contexts/RoomContext';
 import { useFetchAllUser, useUserList } from '@contexts/UserContext';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import UserItem from './item/UserItem';
+import UserItem from 'src/components/common/items/UserItem';
 
 export default function UserListContainer() {
   const router = useRouter();
@@ -27,11 +28,11 @@ export default function UserListContainer() {
   return (
     <div>
       {(userList || []).map(user => (
-        <UserItem
-          key={user.uid}
-          user={user}
-          onClickChat={handleClickPersonalChat(user.uid)}
-        />
+        <UserItem key={user.uid} user={user}>
+          <button type='button' onClick={handleClickPersonalChat(user.uid)}>
+            <SendOutlined />
+          </button>
+        </UserItem>
       ))}
     </div>
   );
