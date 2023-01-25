@@ -8,11 +8,12 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <S.Wrapper>
-      {router.pathname.includes('auth') || (
-        <S.MenuWrapper>
-          <Menu />
-        </S.MenuWrapper>
-      )}
+      {router.pathname.includes('auth') ||
+        router.pathname.includes('/chat/create') || (
+          <S.MenuWrapper>
+            <Menu />
+          </S.MenuWrapper>
+        )}
 
       <S.ContentsWrapper>{children}</S.ContentsWrapper>
     </S.Wrapper>

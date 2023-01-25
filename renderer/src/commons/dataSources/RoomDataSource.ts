@@ -50,6 +50,13 @@ export default class RoomDataSource {
     return roomDocRef.id;
   }
 
+  /**
+   * 오픈 채팅방 생성
+   * @param uids 초대하는 유저들의 uid
+   * @param title 방의 제목
+   * @param ownerUid 방을 생성하는 유저의 uid
+   * @returns 생성된 방의 uid
+   */
   async createOpenChatRoom(uids: string[], title: string, ownerUid: string) {
     const openChatRoomRef = collection(
       this.store,

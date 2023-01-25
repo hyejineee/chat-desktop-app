@@ -13,3 +13,9 @@ export const InputWrapper = styled.div(
     margin-bottom: ${props.marginBottom || 4}px;
   `,
 );
+
+export const TitleText = styled.h1`
+  font-size: 28px;
+  font-weight: 900;
+  color: #292d32;
+`;

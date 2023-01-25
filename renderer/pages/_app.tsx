@@ -18,6 +18,8 @@ import RoomDataSource from '@dataSources/RoomDataSource';
 import { MessageProvider } from '@contexts/MessageContext';
 import MessageDataSource from '@dataSources/MessageDataSource';
 import MessageRepository from '@repositories/MessageRepository';
+import { Global } from '@emotion/react';
+import resetStyles from 'src/components/common/styles/reset.styles';
 
 const authDataSource = new AuthDataSource(auth, db);
 const userDataSource = new UserDataSource(db);
@@ -43,6 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <UserProvider userRepository={userRepository}>
           <RoomProvider roomRepository={roomRepository}>
             <MessageProvider messageRepository={messageRepository}>
+              <Global styles={resetStyles} />
               <Layout>
                 <Component {...pageProps} />
               </Layout>

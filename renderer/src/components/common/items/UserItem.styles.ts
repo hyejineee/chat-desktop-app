@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
 `;
 
 export const ProfileImageWrapper = styled.div`
-  background-color: aliceblue;
   width: 40px;
   height: 40px;
   border-radius: 50%;
