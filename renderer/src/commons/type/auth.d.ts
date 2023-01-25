@@ -3,7 +3,7 @@ export interface IAuthRepository {
   logout: () => void;
   registerUser: (args: RegisterUserArgsType) => Promise<void>;
   checkLoggedIn: () => Promise<boolean>;
-  fetchLoggedInUser: () => UserType | null;
+  fetchLoggedInUser: () => Promise<UserType | null>;
 }
 
 export interface IAuthContext {
@@ -11,7 +11,7 @@ export interface IAuthContext {
   logout: () => void;
   registerUser: (args: RegisterUserArgsType) => Promise<void>;
   checkLoggedIn: () => Promise<boolean>;
-  fetchLoggedInUser: () => UserType | null;
+  fetchLoggedInUser: () => Promise<UserType | null>;
 }
 
 export type UserType = {

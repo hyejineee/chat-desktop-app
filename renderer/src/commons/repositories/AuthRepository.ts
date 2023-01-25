@@ -33,7 +33,7 @@ export default class AuthRepository implements IAuthRepository {
 
     if (user !== null && this.loggedInUser) return true;
 
-    if (user !== null && this.loggedInUser === null && user?.uid) {
+    if (user !== null && this.loggedInUser === null ) {
       const fetchUser = await this.authDataSource.fetchUser(user.uid);
       this.loggedInUser = fetchUser;
       return true;
@@ -44,7 +44,16 @@ export default class AuthRepository implements IAuthRepository {
     return false;
   }
 
-  fetchLoggedInUser() {
+  async fetchLoggedInUser() {
+    const user = this.authDataSource.checkLoggedIn();
+
+    if (user !== null && this.loggedInUser === null) {
+      const fetchUser = await this.authDataSource.fetchUser(user.uid);
+      this.loggedInUser = fetchUser;
+
+      return fetchUser;
+    }
+
     return this.loggedInUser;
   }
 }

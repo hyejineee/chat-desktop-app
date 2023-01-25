@@ -60,6 +60,7 @@ export default class AuthDataSource {
     try {
       await signInWithEmailAndPassword(this.firebaseAuth, email, password);
     } catch (e) {
+      console.log(e);
       if (e instanceof Error) {
         throw Error(this.changeErrorMessage(e.message));
       }

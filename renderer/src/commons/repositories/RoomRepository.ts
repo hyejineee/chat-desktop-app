@@ -1,6 +1,6 @@
 import RoomDataSource from '@dataSources/RoomDataSource';
 import { IAuthRepository } from '@type/auth';
-import { IRoomRepository } from '@type/room';
+import { IRoomRepository, RoomType } from '@type/room';
 
 export default class RoomRepository implements IRoomRepository {
   private roomDataSource: RoomDataSource;
@@ -12,19 +12,32 @@ export default class RoomRepository implements IRoomRepository {
     this.authRepository = authRepository;
   }
 
+  async fetchAllChatRoomsByUser() {
+    const currentUserUid = await this.authRepository.fetchLoggedInUser();
+
+    if (!currentUserUid) throw Error('채팅방 목록을 가져올 수 없습니다.');
+
+    this.roomDataSource.fetchAllRoomsByUser(currentUserUid.uid);
+    return [{} as RoomType];
+  }
+
+  async fetchOpenChatRooms() {
+    return [{} as RoomType];
+  }
+
   async createOpenChatRoom(uids: string[], title: string) {
-    const currentUserUid = this.authRepository.fetchLoggedInUser()?.uid;
+    const currentUser = await this.authRepository.fetchLoggedInUser();
 
-    if (!currentUserUid) throw Error('채팅방 생성에 실패했습니다.');
+    if (!currentUser) throw Error('채팅방 생성에 실패했습니다.');
 
-    return this.roomDataSource.createOpenChatRoom(uids, title, currentUserUid);
+    return this.roomDataSource.createOpenChatRoom(uids, title, currentUser.uid);
   }
 
   async createPersonalChatRoom(pairUid: string) {
-    const currentUserUid = this.authRepository.fetchLoggedInUser()?.uid;
+    const currentUser = await this.authRepository.fetchLoggedInUser();
 
-    if (!currentUserUid) throw Error('채팅방 생성에 실패했습니다.');
+    if (!currentUser) throw Error('채팅방 생성에 실패했습니다.');
 
-    return this.roomDataSource.createPersonalChatRoom(currentUserUid, pairUid);
+    return this.roomDataSource.createPersonalChatRoom(currentUser.uid, pairUid);
   }
 }
