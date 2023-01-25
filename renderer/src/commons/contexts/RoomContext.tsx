@@ -10,12 +10,18 @@ const useRoomContext: (props: UseRoomContextPropsType) => IRoomContext = ({
   const createPersonalChatRoom = (pairUid: string) =>
     roomRepository.createPersonalChatRoom(pairUid);
 
+  const createOpenChatRoom = (uids: string[], title: string) =>
+    roomRepository.createOpenChatRoom(uids, title);
+
   return {
     createPersonalChatRoom,
+    createOpenChatRoom,
   };
 };
 
-export const [RoomProvider, useCreatePersonalChatRoom] = constate(
-  useRoomContext,
-  value => value.createPersonalChatRoom,
-);
+export const [RoomProvider, useCreatePersonalChatRoom, useCreateOpenChatRoom] =
+  constate(
+    useRoomContext,
+    value => value.createPersonalChatRoom,
+    value => value.createOpenChatRoom,
+  );

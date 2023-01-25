@@ -32,7 +32,7 @@ export default function ChatRoomContainer() {
 
   return (
     <div>
-      {messages?.map(e => (
+      {(messages || [])?.map(e => (
         <div>{e.content}</div>
       ))}
       <button type='button' onClick={handleClickSendMessage}>

@@ -12,6 +12,14 @@ export default class RoomRepository implements IRoomRepository {
     this.authRepository = authRepository;
   }
 
+  async createOpenChatRoom(uids: string[], title: string) {
+    const currentUserUid = this.authRepository.fetchLoggedInUser()?.uid;
+
+    if (!currentUserUid) throw Error('채팅방 생성에 실패했습니다.');
+
+    return this.roomDataSource.createOpenChatRoom(uids, title, currentUserUid);
+  }
+
   async createPersonalChatRoom(pairUid: string) {
     const currentUserUid = this.authRepository.fetchLoggedInUser()?.uid;
 
