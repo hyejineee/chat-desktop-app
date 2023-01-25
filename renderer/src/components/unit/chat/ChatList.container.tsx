@@ -1,12 +1,25 @@
 import { CREATE_OPEN_CHAT_PAGE } from '@constants/paths';
+import {
+  useFetchAllChatRoomsByUser,
+  useUserRooms,
+} from '@contexts/RoomContext';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function ChatListContainer() {
   const router = useRouter();
+  const userRooms = useUserRooms();
+  const fetchAllRooms = useFetchAllChatRoomsByUser();
 
   const handleClickCreateOpenChat = () => {
     router.push(CREATE_OPEN_CHAT_PAGE);
   };
+
+  useEffect(() => {
+    fetchAllRooms();
+  }, []);
+
+  console.log(userRooms);
 
   return (
     <div>

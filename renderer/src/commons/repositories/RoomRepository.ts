@@ -17,8 +17,7 @@ export default class RoomRepository implements IRoomRepository {
 
     if (!currentUserUid) throw Error('채팅방 목록을 가져올 수 없습니다.');
 
-    this.roomDataSource.fetchAllRoomsByUser(currentUserUid.uid);
-    return [{} as RoomType];
+    return this.roomDataSource.fetchAllRoomsByUser(currentUserUid.uid);
   }
 
   async fetchOpenChatRooms() {

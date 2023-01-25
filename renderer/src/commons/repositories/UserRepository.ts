@@ -13,11 +13,11 @@ export default class UserRepository implements IUserRepository {
   }
 
   async fetchAllUser() {
-    const currentUserUid = this.authRepository.fetchLoggedInUser()?.uid;
+    const currentUser = await this.authRepository.fetchLoggedInUser();
 
-    if (!currentUserUid) return null;
+    if (!currentUser) return null;
 
-    const fetched = await this.userDataSource.fetchAllUser(currentUserUid);
+    const fetched = await this.userDataSource.fetchAllUser(currentUser.uid);
 
     const users: UserType[] = [];
     fetched.forEach(user => users.push(user.data() as UserType));

@@ -1,10 +1,13 @@
+import { RoomType } from '@type/room';
 import {
   addDoc,
   arrayUnion,
   collection,
   doc,
   DocumentData,
+  DocumentReference,
   Firestore,
+  getDoc,
   getDocs,
   limit,
   query,
@@ -15,9 +18,7 @@ import {
 
 export default class RoomDataSource {
   private store: Firestore;
-
   private PERSONAL_CHAT_ROOM_COLLECTION = 'PersonalChatRooms';
-
   private OPEN_CHAT_ROOM_COLLECTION = 'OpenChatRooms';
 
   constructor(store: Firestore) {
@@ -45,7 +46,7 @@ export default class RoomDataSource {
       messages: [{}],
     });
 
-    await this.enterUserIntoRoom([uid, pairUid], roomDocRef.id);
+    await this.enterUserIntoRoom([uid, pairUid], roomDocRef);
 
     return roomDocRef.id;
   }
@@ -70,21 +71,36 @@ export default class RoomDataSource {
       messages: [{}],
     });
 
-    await this.enterUserIntoRoom([...uids, ownerUid], roomDocRef.id);
+    await this.enterUserIntoRoom([...uids, ownerUid], roomDocRef);
 
     return roomDocRef.id;
+  }
+
+  async fetchAllRoomsByUser(uid: string) {
+    const userRef = await getDoc(doc(this.store, 'Users', uid));
+    const roomRefs = userRef.data()?.rooms;
+
+    const rooms = await Promise.all(roomRefs.map((ref: any) => getDoc(ref)));
+
+    const result = rooms.map(e => e.data() as RoomType);
+    console.log(result);
+
+    return result;
   }
 
   /**
    * 사용자의 rooms 필드에 room uid 추가
    * @param uids
-   * @param roomId
+   * @param roomRef
    */
-  private async enterUserIntoRoom(uids: string[], roomId: string) {
+  private async enterUserIntoRoom(
+    uids: string[],
+    roomRef: DocumentReference<DocumentData>,
+  ) {
     await Promise.all(
       uids.map(uid =>
         updateDoc(doc(this.store, 'Users', uid), {
-          rooms: arrayUnion(roomId),
+          rooms: arrayUnion(roomRef),
         }),
       ),
     );

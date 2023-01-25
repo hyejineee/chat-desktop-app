@@ -40,7 +40,7 @@ export default class MessageRepository implements IMessageRepository {
   }
 
   async sendMessage(message: string, roomId: string, roomType: string) {
-    const currentUser = this.authRepository.fetchLoggedInUser();
+    const currentUser = await this.authRepository.fetchLoggedInUser();
 
     if (!currentUser) throw Error('메세지 전송에 실패했습니다.');
 
