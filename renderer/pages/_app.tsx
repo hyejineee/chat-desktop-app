@@ -12,11 +12,16 @@ import { auth, db } from 'src/commons/settings/firebaseConfig';
 import { UserProvider } from '@contexts/UserContext';
 import UserRepository from '@repositories/UserRepository';
 import UserDataSource from '@dataSources/UserDataSource';
+import { RoomProvider } from '@contexts/RoomContext';
+import RoomRepository from '@repositories/RoomRepository';
+import RoomDataSource from '@dataSources/RoomDataSource';
 
 const authDataSource = new AuthDataSource(auth, db);
 const userDataSource = new UserDataSource(db);
+const roomDataSource = new RoomDataSource(db);
 const authRepository = new AuthRepository(authDataSource);
 const userRepository = new UserRepository(userDataSource, authRepository);
+const roomRepository = new RoomRepository(roomDataSource, authRepository);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -27,9 +32,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <AuthProvider authRepository={authRepository}>
         <UserProvider userRepository={userRepository}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <RoomProvider roomRepository={roomRepository}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </RoomProvider>
         </UserProvider>
       </AuthProvider>
     </>
