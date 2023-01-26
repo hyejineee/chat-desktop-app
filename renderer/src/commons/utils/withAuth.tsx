@@ -14,7 +14,7 @@ const withAuth =
     const checkLoggedIn = useCheckLoggedIn();
 
     useEffect(() => {
-      checkLoggedIn().then((loggedIn: boolean) => {
+      checkLoggedIn()?.then((loggedIn: boolean) => {
         if (!router.pathname.includes(LOGIN_PAGE) && !loggedIn) {
           router.replace(LOGIN_PAGE);
         }

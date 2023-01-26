@@ -1,3 +1,4 @@
+import { UserType } from '@type/auth';
 import { RoomType } from '@type/room';
 import {
   addDoc,
@@ -15,6 +16,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import { string } from 'yup/lib/locale';
 
 export default class RoomDataSource {
   private store: Firestore;
@@ -80,16 +82,40 @@ export default class RoomDataSource {
 
   /**
    * 현재 로그인한 유저가 속해있는 채팅방 가져오기
-   * @param uid 로그인한 유저의 uid
+   * @param currentUserUid 로그인한 유저의 uid
    * @returns 방 리스트
    */
-  async fetchAllRoomsByUser(uid: string) {
-    const userRef = await getDoc(doc(this.store, 'Users', uid));
-    const roomRefs = userRef.data()?.rooms;
+  async fetchAllRoomsByUser(currentUserUid: string) {
+    const currentUserDoc = await getDoc(
+      doc(this.store, 'Users', currentUserUid),
+    );
+    const roomRefs = currentUserDoc.data()?.rooms;
 
-    const rooms = await Promise.all(roomRefs.map((ref: any) => getDoc(ref)));
+    const roomDocs = await Promise.all(roomRefs.map((ref: any) => getDoc(ref)));
 
-    const result = rooms.map(e => ({ ...e.data(), uid: e.id } as RoomType));
+    const result = await Promise.all(
+      roomDocs.map(async e => {
+        const userIds = e
+          .data()
+          ?.users?.filter((id: string) => !id.includes(currentUserUid));
+
+        const userDocs = await Promise.all(
+          userIds.map((id: string) => getDoc(doc(this.store, 'Users', id))),
+        );
+
+        const users = userDocs.map(
+          (userDoc: any) => userDoc.data() as UserType,
+        );
+
+        return {
+          ...e.data(),
+          users,
+          uid: e.id,
+        } as RoomType;
+      }),
+    );
+
+    console.log(result);
 
     return result;
   }

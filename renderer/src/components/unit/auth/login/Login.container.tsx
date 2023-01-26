@@ -39,6 +39,7 @@ export default function LoginContainer() {
 
   return (
     <S.Wrapper>
+      <S.Title>MAUM CHAT</S.Title>
       <S.LoginFormWrapper>
         <InputWrapper>
           <NormalInput

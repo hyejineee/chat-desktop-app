@@ -23,11 +23,13 @@ export default function ChatRoomItem({ room }: ChatRoomItemPropsType) {
   return (
     <S.Wrapper>
       <CircleView style={{ backgroundColor: color }}>
-        {room?.title?.[0] || 'P'}
+        {room?.title?.[0] || room?.users?.[0]?.nickName[0]}
       </CircleView>
 
       <S.ContentsWrapper>
-        <S.TitleWrapper>{room.title || 'Personal'}</S.TitleWrapper>
+        <S.TitleWrapper>
+          {room.title || room?.users?.[0]?.nickName}
+        </S.TitleWrapper>
         <S.MessageWrapper>
           {room.messages?.[room.messages.length - 1]?.content}
         </S.MessageWrapper>

@@ -33,6 +33,7 @@ export default function RegisterUserContainer() {
 
     try {
       await registerUser(args);
+      showAlert('success', '회원가입이 완료되었습니다. 로그인해 주세요.');
       router.replace(LOGIN_PAGE);
     } catch (e) {
       if (e instanceof Error) {
