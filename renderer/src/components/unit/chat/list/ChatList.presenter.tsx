@@ -1,6 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { RoomType } from '@type/room';
-import ChatRoomItem from 'src/components/common/items/chatRoomItem/ChatRoomItem';
+import ChatRoomItem from 'src/components/unit/chat/list/chatRoomItem/ChatRoomItem';
 import {
   GuidanceText,
   TitleText,
@@ -38,8 +38,12 @@ export default function ChatListUI({
 
       <S.ChatListWrapper>
         {(roomList || []).map(room => (
-          <button type='button' onClick={onClickRoomItem(room.uid, room.type)}>
-            <ChatRoomItem key={room.uid} room={room} />
+          <button
+            key={room?.uid}
+            type='button'
+            onClick={onClickRoomItem(room?.uid, room.type)}
+          >
+            <ChatRoomItem room={room} />
           </button>
         ))}
       </S.ChatListWrapper>

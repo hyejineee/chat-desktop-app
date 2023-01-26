@@ -40,6 +40,7 @@ export const [
   useLogout,
   useRegisterUser,
   useCheckLoggedIn,
+  useFetchLoggedInUser,
 ] = constate(
   useAuthContext,
   value => value.login,

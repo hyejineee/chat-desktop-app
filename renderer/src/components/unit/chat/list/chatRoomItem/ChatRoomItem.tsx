@@ -1,7 +1,7 @@
 import { RoomType } from '@type/room';
 import randomColor from 'randomcolor';
 import { useMemo } from 'react';
-import { CircleView } from '../../styles/common.styles';
+import { CircleView } from '../../../../common/styles/common.styles';
 import * as S from './ChatRoomItem.styles';
 
 type ChatRoomItemPropsType = {
