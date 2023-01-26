@@ -79,7 +79,7 @@ export default function LoginContainer() {
         <S.RegisterGuidanceWrpper>
           아직 계정이 없으신가요?{' '}
           <Link href={REGISTER_USER_PAGE}>
-            <u>회원가입</u>
+            <u style={{ cursor: 'pointer' }}>회원가입</u>
           </Link>
         </S.RegisterGuidanceWrpper>
       </S.LoginFormWrapper>
