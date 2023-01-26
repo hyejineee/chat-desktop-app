@@ -25,7 +25,7 @@ export const MessageWrapper = styled.div`
   margin-top: 5px;
   font-size: 12px;
   color: gray;
-  width: 150px;
+  width: 130px;
   text-align: start;
   white-space: nowrap;
   text-overflow: ellipsis;
