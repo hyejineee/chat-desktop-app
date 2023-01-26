@@ -4,7 +4,7 @@ import {
 } from '@contexts/RoomContext';
 import withAuth from '@utils/withAuth';
 import { useEffect } from 'react';
-import ChatListContainer from 'src/components/unit/chat/list/ChatList.container';
+import ChatListContainer from 'src/components/unit/chat/chatRoomList/ChatList.container';
 
 function ChatListPage() {
   const userRooms = useUserRooms();

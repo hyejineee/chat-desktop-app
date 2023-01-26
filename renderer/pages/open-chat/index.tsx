@@ -1,6 +1,6 @@
 import { useFetchOpenChatRooms, useOpenRooms } from '@contexts/RoomContext';
 import { useEffect } from 'react';
-import ChatListContainer from 'src/components/unit/chat/list/ChatList.container';
+import ChatListContainer from 'src/components/unit/chat/chatRoomList/ChatList.container';
 
 //
 export default function OpenChatListPage() {
