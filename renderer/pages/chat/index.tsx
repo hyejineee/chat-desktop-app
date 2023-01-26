@@ -1,5 +1,5 @@
 import withAuth from '@utils/withAuth';
-import ChatListContainer from 'src/components/unit/chat/ChatList.container';
+import ChatListContainer from 'src/components/unit/chat/list/ChatList.container';
 
 function ChatListPage() {
   return <ChatListContainer />;

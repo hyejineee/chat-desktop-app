@@ -1,7 +1,11 @@
 import { SendOutlined } from '@ant-design/icons';
 import { UserType } from '@type/auth';
-import UserItem from 'src/components/common/items/UserItem';
-import { TitleText } from 'src/components/common/styles/common.styles';
+import UserItem from 'src/components/common/items/userItem/UserItem';
+
+import {
+  GuidanceText,
+  TitleText,
+} from 'src/components/common/styles/common.styles';
 import * as S from './UserList.styles';
 
 type UserListUIPropsType = {
@@ -19,7 +23,7 @@ export default function UserListUI({
         유저 리스트
       </TitleText>
 
-      <S.GuidanceText>관심 있는 유저에게 메시지를 보내보세요!</S.GuidanceText>
+      <GuidanceText>관심 있는 유저에게 메시지를 보내보세요!</GuidanceText>
       {(userList || []).map(user => (
         <UserItem key={user.uid} user={user}>
           <button type='button' onClick={onClickPersonalChat(user.uid)}>

@@ -2,8 +2,8 @@ import type { MenuProps } from 'antd';
 import { Menu as AntdMenu } from 'antd';
 import {
   UserOutlined,
-  WechatOutlined,
   SettingOutlined,
+  MessageOutlined,
 } from '@ant-design/icons';
 import { useRouter } from 'next/router';
 import { CHAT_PAGE, SETTING_PAGE, USERS_PAGE } from '@constants/paths';
@@ -28,7 +28,7 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem('유저 목록', USERS_PAGE, <UserOutlined />),
-  getItem('채팅방 목록', CHAT_PAGE, <WechatOutlined />),
+  getItem('채팅방 목록', CHAT_PAGE, <MessageOutlined />),
   getItem('설정', SETTING_PAGE, <SettingOutlined />),
 ];
 

@@ -9,18 +9,6 @@ export const Wrapper = styled.div`
   gap: 16px;
 `;
 
-export const ProfileImageWrapper = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: 900;
-`;
-
 export const NickNameWrapper = styled.div`
   font-size: 14px;
   font-weight: 500;

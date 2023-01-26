@@ -5,6 +5,7 @@ import {
 } from '@contexts/RoomContext';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import ChatListUI from './ChatList.presenter';
 
 export default function ChatListContainer() {
   const router = useRouter();
@@ -15,16 +16,17 @@ export default function ChatListContainer() {
     router.push(CREATE_OPEN_CHAT_PAGE);
   };
 
+  const handleClickRoomItem = (roomId: string, type: string) => () => {};
+
   useEffect(() => {
     fetchAllRooms();
   }, []);
 
   return (
-    <div>
-      채팅 방 목록 페이지
-      <button type='button' onClick={handleClickCreateOpenChat}>
-        오픈 채팅방 생성
-      </button>
-    </div>
+    <ChatListUI
+      roomList={userRooms}
+      onClickRoomItem={handleClickRoomItem}
+      onClickCreateOpenChat={handleClickCreateOpenChat}
+    />
   );
 }

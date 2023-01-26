@@ -16,7 +16,8 @@ export interface IRoomContext {
 
 export type RoomType = {
   uid: string;
+  type: string;
   title?: string;
-  users?: string[];
+  users?: UserType[];
   messages?: MessageType[];
 };

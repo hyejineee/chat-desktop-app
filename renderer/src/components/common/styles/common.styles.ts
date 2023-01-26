@@ -19,3 +19,23 @@ export const TitleText = styled.h1`
   font-weight: 900;
   color: #292d32;
 `;
+
+export const GuidanceText = styled.p`
+  color: gray;
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  line-height: 20px;
+`;
+
+export const CircleView = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+`;
