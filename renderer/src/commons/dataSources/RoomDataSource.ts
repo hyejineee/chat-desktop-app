@@ -41,9 +41,11 @@ export default class RoomDataSource {
 
     if (existRoomId) return existRoomId;
 
+    const userRefs = [uid, pairUid].map(e => doc(this.store, `Users/${e}`));
+
     const roomDocRef = await addDoc(personalChatRoomRef, {
-      users: [uid, pairUid],
-      messages: [{}],
+      users: userRefs,
+      messages: [],
     });
 
     await this.enterUserIntoRoom([uid, pairUid], roomDocRef);
@@ -64,11 +66,13 @@ export default class RoomDataSource {
       this.OPEN_CHAT_ROOM_COLLECTION,
     );
 
+    const userRefs = uids.map(e => doc(this.store, `Users/${e}`));
+
     const roomDocRef = await addDoc(openChatRoomRef, {
-      users: uids,
+      users: userRefs,
       title,
       owner: ownerUid,
-      messages: [{}],
+      messages: [],
     });
 
     await this.enterUserIntoRoom([...uids, ownerUid], roomDocRef);
