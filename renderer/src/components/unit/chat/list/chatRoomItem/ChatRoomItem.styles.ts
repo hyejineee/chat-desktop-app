@@ -17,13 +17,19 @@ export const ContentsWrapper = styled.div`
 
 export const TitleWrapper = styled.p`
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
+  color: #545454;
 `;
 
-export const MessageWrapper = styled.p`
+export const MessageWrapper = styled.div`
   margin-top: 5px;
   font-size: 12px;
   color: gray;
+  width: 150px;
+  text-align: start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export const DateWrapper = styled.p`

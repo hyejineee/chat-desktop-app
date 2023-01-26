@@ -1,4 +1,5 @@
 import { MessageType } from '@type/message';
+import moment from 'moment';
 import randomColor from 'randomcolor';
 import { useMemo } from 'react';
 import { CircleView } from 'src/components/common/styles/common.styles';
@@ -30,8 +31,13 @@ export default function MessageItem({ message, isMine }: MessageItemPropsType) {
       )}
 
       <S.Box style={{ alignItems: isMine ? 'flex-end' : 'flex-start' }}>
+        <S.TimestampText>
+          {moment(message.timestamp.toDate()).format('YYYY.MM.DD hh:mm')}
+        </S.TimestampText>
         {isMine || <S.NickNameWrapper>{message.nickName}</S.NickNameWrapper>}
-        <S.MessageWrapper>{message.content}</S.MessageWrapper>
+        <S.MessageWrapper style={{ textAlign: isMine ? 'end' : 'start' }}>
+          {message.content}
+        </S.MessageWrapper>
       </S.Box>
     </S.Wrapper>
   );
