@@ -1,6 +1,6 @@
 import RoomDataSource from '@dataSources/RoomDataSource';
 import { IAuthRepository } from '@type/auth';
-import { IRoomRepository, RoomType } from '@type/room';
+import { IRoomRepository } from '@type/room';
 
 export default class RoomRepository implements IRoomRepository {
   private roomDataSource: RoomDataSource;

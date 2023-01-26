@@ -1,4 +1,3 @@
-import { UserType } from '@type/auth';
 import { RoomType } from '@type/room';
 import {
   addDoc,
@@ -108,10 +107,14 @@ export default class RoomDataSource {
       rooms.push({ ...ref.data(), uid: ref.id } as RoomType);
     });
 
-    console.log('room', rooms);
     return rooms;
   }
 
+  /**
+   * 오픈 채팅방 입장하기
+   * @param roomId 오픈 채팅방 아이디
+   * @param userUid 입장하는 유저의 아이디
+   */
   async enterOpenChatRoom(roomId: string, userUid: string) {
     await Promise.all([
       updateDoc(doc(this.store, 'OpenChatRooms', roomId), {

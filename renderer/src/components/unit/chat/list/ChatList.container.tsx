@@ -1,12 +1,7 @@
 import { CREATE_OPEN_CHAT_PAGE } from '@constants/paths';
-import {
-  useEnterOpenChatRoom,
-  useFetchAllChatRoomsByUser,
-  useUserRooms,
-} from '@contexts/RoomContext';
+import { useEnterOpenChatRoom } from '@contexts/RoomContext';
 import { RoomType } from '@type/room';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import ChatListUI from './ChatList.presenter';
 
 type ChatListContainerPropsType = {
