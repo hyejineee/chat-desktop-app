@@ -17,3 +17,9 @@ export const InputWrapper = styled.div`
   align-items: center;
   gap: 6px;
 `;
+
+export const TitleWrapper = styled.div`
+  font-size: 24px;
+  font-weight: 800;
+  color: #545454;
+`;

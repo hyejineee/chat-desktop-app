@@ -1,25 +1,35 @@
 import { UserType } from '@type/auth';
 import { MessageType } from '@type/message';
 import { Button, Input } from 'antd';
+import { useEffect, useRef } from 'react';
 import { Control, FieldValues } from 'react-hook-form';
 import NormalInput from 'src/components/common/inputs/NormalInput/NormalInput';
 import * as S from './ChatRoom.styles';
 import MessageItem from './messageItem/MessageItem';
 
 type ChatRoomUIPropsType = {
+  title: string;
   loggedInUser: UserType | null;
   control: Control<FieldValues, any>;
   messageList: MessageType[] | null;
   onClickSend: () => void;
 };
 export default function ChatRoomUI({
+  title,
   loggedInUser,
   control,
   messageList,
   onClickSend,
 }: ChatRoomUIPropsType) {
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  });
+
   return (
     <S.Wrapper>
+      <S.TitleWrapper>💬 {title}</S.TitleWrapper>
       <S.MessagesWrapper>
         {(messageList || [])?.map(message => (
           <MessageItem
@@ -28,6 +38,7 @@ export default function ChatRoomUI({
             isMine={message?.senderUid?.includes(loggedInUser?.uid || '')}
           />
         ))}
+        <div ref={bottomRef} />
       </S.MessagesWrapper>
       <S.InputWrapper>
         <NormalInput control={control} name='message' />

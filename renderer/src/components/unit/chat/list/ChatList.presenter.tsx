@@ -11,7 +11,7 @@ type ChatListUIPropsType = {
   roomList: RoomType[] | null;
   title: string;
   subTitle: string;
-  onClickRoomItem: (roomId: string, type: string) => () => void;
+  onClickRoomItem: (room: RoomType) => () => void;
   onClickCreateOpenChat: () => void;
 };
 
@@ -41,11 +41,7 @@ export default function ChatListUI({
 
       <S.ChatListWrapper>
         {(roomList || []).map(room => (
-          <button
-            key={room.uid}
-            type='button'
-            onClick={onClickRoomItem(room?.uid, room.type)}
-          >
+          <button key={room.uid} type='button' onClick={onClickRoomItem(room)}>
             <ChatRoomItem room={room} />
           </button>
         ))}

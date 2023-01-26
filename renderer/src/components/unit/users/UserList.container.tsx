@@ -12,17 +12,18 @@ export default function UserListContainer() {
   const fetchAllUser = useFetchAllUser();
   const createPersonalChatRoom = useCreatePersonalChatRoom();
 
-  const handleClickPersonalChat = (uid: string) => async () => {
-    try {
-      const roomId = await createPersonalChatRoom(uid);
+  const handleClickPersonalChat =
+    (uid: string, nickName: string) => async () => {
+      try {
+        const roomId = await createPersonalChatRoom(uid);
 
-      router.push(`/chat/${roomId}?type=personal`);
-    } catch (e) {
-      if (e instanceof Error) {
-        showAlert('error', e.message);
+        router.push(`/chat/${roomId}?type=personal&title=${nickName}`);
+      } catch (e) {
+        if (e instanceof Error) {
+          showAlert('error', e.message);
+        }
       }
-    }
-  };
+    };
 
   useEffect(() => {
     try {

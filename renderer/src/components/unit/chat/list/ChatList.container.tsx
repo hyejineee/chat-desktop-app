@@ -22,11 +22,15 @@ export default function ChatListContainer({
     router.push(CREATE_OPEN_CHAT_PAGE);
   };
 
-  const handleClickRoomItem = (roomId: string, type: string) => () => {
-    if (type.includes('open')) {
-      enterOpenChatRoom(roomId);
+  const handleClickRoomItem = (room: RoomType) => () => {
+    if (room.type.includes('open')) {
+      enterOpenChatRoom(room.uid);
     }
-    router.push(`/chat/${roomId}?type=${type}`);
+    router.push(
+      `/chat/${room.uid}?type=${room.type}&title=${
+        room.title || room.users?.[0].nickName
+      }`,
+    );
   };
 
   return (

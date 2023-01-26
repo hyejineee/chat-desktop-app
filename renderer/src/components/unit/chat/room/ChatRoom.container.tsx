@@ -66,6 +66,7 @@ export default function ChatRoomContainer() {
 
   return (
     <ChatRoomUI
+      title={String(router.query.title)}
       control={control}
       messageList={messages}
       onClickSend={handleClickSendMessage}

@@ -10,7 +10,7 @@ import * as S from './UserList.styles';
 
 type UserListUIPropsType = {
   userList: UserType[] | null;
-  onClickPersonalChat: (uid: string) => () => void;
+  onClickPersonalChat: (uid: string, nickName: string) => () => void;
 };
 export default function UserListUI({
   userList,
@@ -26,7 +26,10 @@ export default function UserListUI({
       <GuidanceText>관심 있는 유저에게 메시지를 보내보세요!</GuidanceText>
       {(userList || []).map(user => (
         <UserItem key={user.uid} user={user}>
-          <button type='button' onClick={onClickPersonalChat(user.uid)}>
+          <button
+            type='button'
+            onClick={onClickPersonalChat(user.uid, user.nickName)}
+          >
             <SendOutlined />
           </button>
         </UserItem>
