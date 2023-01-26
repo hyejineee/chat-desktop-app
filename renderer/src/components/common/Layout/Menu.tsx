@@ -4,9 +4,15 @@ import {
   UserOutlined,
   SettingOutlined,
   MessageOutlined,
+  WechatOutlined,
 } from '@ant-design/icons';
 import { useRouter } from 'next/router';
-import { CHAT_PAGE, SETTING_PAGE, USERS_PAGE } from '@constants/paths';
+import {
+  CHAT_PAGE,
+  OPEN_CHAT_PAGE,
+  SETTING_PAGE,
+  USERS_PAGE,
+} from '@constants/paths';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -27,8 +33,9 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('유저 목록', USERS_PAGE, <UserOutlined />),
-  getItem('채팅방 목록', CHAT_PAGE, <MessageOutlined />),
+  getItem('유저 리스트', USERS_PAGE, <UserOutlined />),
+  getItem('나의 채팅방 리스트', CHAT_PAGE, <MessageOutlined />),
+  getItem('오픈 채팅방 리스트', OPEN_CHAT_PAGE, <WechatOutlined />),
   getItem('설정', SETTING_PAGE, <SettingOutlined />),
 ];
 

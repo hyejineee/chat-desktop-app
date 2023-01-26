@@ -3,14 +3,23 @@ import {
   useFetchAllChatRoomsByUser,
   useUserRooms,
 } from '@contexts/RoomContext';
+import { RoomType } from '@type/room';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import ChatListUI from './ChatList.presenter';
 
-export default function ChatListContainer() {
+type ChatListContainerPropsType = {
+  roomList: RoomType[] | null;
+  title: string;
+  subTitle: string;
+};
+
+export default function ChatListContainer({
+  roomList,
+  title,
+  subTitle,
+}: ChatListContainerPropsType) {
   const router = useRouter();
-  const userRooms = useUserRooms();
-  const fetchAllRooms = useFetchAllChatRoomsByUser();
 
   const handleClickCreateOpenChat = () => {
     router.push(CREATE_OPEN_CHAT_PAGE);
@@ -20,13 +29,11 @@ export default function ChatListContainer() {
     router.push(`/chat/${roomId}?type=${type}`);
   };
 
-  useEffect(() => {
-    fetchAllRooms();
-  }, []);
-
   return (
     <ChatListUI
-      roomList={userRooms}
+      roomList={roomList}
+      title={title}
+      subTitle={subTitle}
       onClickRoomItem={handleClickRoomItem}
       onClickCreateOpenChat={handleClickCreateOpenChat}
     />

@@ -25,6 +25,7 @@ const useRoomContext: (props: UseRoomContextPropsType) => IRoomContext = ({
 
   const fetchOpenChatRooms = async () => {
     const rooms = await roomRepository.fetchOpenChatRooms();
+
     setOpenRooms(rooms);
   };
   return {
