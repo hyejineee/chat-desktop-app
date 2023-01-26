@@ -137,7 +137,10 @@ export default class RoomDataSource {
 
     const q = query(
       personalChatRoomRef,
-      where('users', 'in', [[uid1, uid2]]),
+      where('users', 'in', [
+        [uid1, uid2],
+        [uid2, uid1],
+      ]),
       limit(1),
     );
 
