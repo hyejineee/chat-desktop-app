@@ -48,7 +48,7 @@ export default class RoomDataSource {
       type: 'personal',
     });
 
-    await this.enterUserIntoRoom([uid, pairUid], roomDocRef);
+    await this.pushUsersIntoRoom([uid, pairUid], roomDocRef);
 
     return roomDocRef.id;
   }
@@ -74,13 +74,13 @@ export default class RoomDataSource {
       type: 'open',
     });
 
-    await this.enterUserIntoRoom([...uids, ownerUid], roomDocRef);
+    await this.pushUsersIntoRoom([...uids, ownerUid], roomDocRef);
 
     return roomDocRef.id;
   }
 
   /**
-   * 현재 로그인한 유저가 속했있는 채팅방 가져오기
+   * 현재 로그인한 유저가 속해있는 채팅방 가져오기
    * @param uid 로그인한 유저의 uid
    * @returns 방 리스트
    */
@@ -95,6 +95,10 @@ export default class RoomDataSource {
     return result;
   }
 
+  /**
+   * 모든 오픈 채팅방 가져오기
+   * @returns 오픈 채팅방 리스트
+   */
   async fetchOpenChatRooms() {
     const roomsRef = await getDocs(collection(this.store, 'OpenChatRooms'));
 
@@ -108,12 +112,24 @@ export default class RoomDataSource {
     return rooms;
   }
 
+  async enterOpenChatRoom(roomId: string, userUid: string) {
+    await Promise.all([
+      updateDoc(doc(this.store, 'OpenChatRooms', roomId), {
+        users: arrayUnion(userUid),
+      }),
+
+      updateDoc(doc(this.store, 'Users', userUid), {
+        rooms: arrayUnion(doc(this.store, 'OpenChatRooms', roomId)),
+      }),
+    ]);
+  }
+
   /**
    * 사용자의 rooms 필드에 room uid 추가
    * @param uids
    * @param roomRef
    */
-  private async enterUserIntoRoom(
+  private async pushUsersIntoRoom(
     uids: string[],
     roomRef: DocumentReference<DocumentData>,
   ) {

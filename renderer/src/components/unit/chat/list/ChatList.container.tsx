@@ -1,5 +1,6 @@
 import { CREATE_OPEN_CHAT_PAGE } from '@constants/paths';
 import {
+  useEnterOpenChatRoom,
   useFetchAllChatRoomsByUser,
   useUserRooms,
 } from '@contexts/RoomContext';
@@ -20,12 +21,16 @@ export default function ChatListContainer({
   subTitle,
 }: ChatListContainerPropsType) {
   const router = useRouter();
+  const enterOpenChatRoom = useEnterOpenChatRoom();
 
   const handleClickCreateOpenChat = () => {
     router.push(CREATE_OPEN_CHAT_PAGE);
   };
 
   const handleClickRoomItem = (roomId: string, type: string) => () => {
+    if (type.includes('open')) {
+      enterOpenChatRoom(roomId);
+    }
     router.push(`/chat/${roomId}?type=${type}`);
   };
 
