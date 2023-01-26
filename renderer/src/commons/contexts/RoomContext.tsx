@@ -19,6 +19,7 @@ const useRoomContext: (props: UseRoomContextPropsType) => IRoomContext = ({
 
   const fetchAllChatRoomsByUser = async () => {
     const rooms = await roomRepository.fetchAllChatRoomsByUser();
+
     setUserRooms(rooms);
   };
 

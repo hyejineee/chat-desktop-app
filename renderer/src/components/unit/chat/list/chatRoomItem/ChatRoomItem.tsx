@@ -1,6 +1,7 @@
 import { RoomType } from '@type/room';
 import randomColor from 'randomcolor';
 import { useMemo } from 'react';
+import moment from 'moment';
 import { CircleView } from '../../../../common/styles/common.styles';
 import * as S from './ChatRoomItem.styles';
 
@@ -21,11 +22,22 @@ export default function ChatRoomItem({ room }: ChatRoomItemPropsType) {
 
   return (
     <S.Wrapper>
-      <CircleView style={{ backgroundColor: color }}>t</CircleView>
+      <CircleView style={{ backgroundColor: color }}>
+        {room?.title?.[0] || 'P'}
+      </CircleView>
+
       <S.ContentsWrapper>
-        <S.TitleWrapper>{room.title}</S.TitleWrapper>
-        <S.MessageWrapper>sadfasdf</S.MessageWrapper>
+        <S.TitleWrapper>{room.title || 'Personal'}</S.TitleWrapper>
+        <S.MessageWrapper>
+          {room.messages?.[room.messages.length - 1]?.content}
+        </S.MessageWrapper>
       </S.ContentsWrapper>
+
+      <S.DateWrapper>
+        {moment(
+          room.messages?.[room.messages.length - 1]?.timestamp.toDate(),
+        ).format('YYYY.MM.DD')}
+      </S.DateWrapper>
     </S.Wrapper>
   );
 }

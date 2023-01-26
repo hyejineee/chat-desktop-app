@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
 export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
 `;
 
 export const TitleWrapper = styled.p`
@@ -21,4 +23,12 @@ export const TitleWrapper = styled.p`
 export const MessageWrapper = styled.p`
   font-size: 12px;
   color: gray;
+`;
+
+export const DateWrapper = styled.p`
+  font-size: 10px;
+  color: gray;
+  align-self: flex-start;
+  justify-self: flex-end;
+  margin-top: 5px;
 `;

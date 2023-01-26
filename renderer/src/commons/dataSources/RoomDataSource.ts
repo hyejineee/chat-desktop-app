@@ -1,3 +1,4 @@
+import { UserType } from '@type/auth';
 import { RoomType } from '@type/room';
 import {
   addDoc,
@@ -46,6 +47,7 @@ export default class RoomDataSource {
     const roomDocRef = await addDoc(personalChatRoomRef, {
       users: userRefs,
       messages: [],
+      type: 'personal',
     });
 
     await this.enterUserIntoRoom([uid, pairUid], roomDocRef);
@@ -73,6 +75,7 @@ export default class RoomDataSource {
       title,
       owner: ownerUid,
       messages: [],
+      type: 'open',
     });
 
     await this.enterUserIntoRoom([...uids, ownerUid], roomDocRef);
@@ -91,7 +94,20 @@ export default class RoomDataSource {
 
     const rooms = await Promise.all(roomRefs.map((ref: any) => getDoc(ref)));
 
-    const result = rooms.map(e => e.data() as RoomType);
+    const result = await Promise.all(
+      rooms.map(async e => {
+        const userRefs = e.data().users;
+        const users = await Promise.all(
+          userRefs.map((ref: any) => getDoc(ref)),
+        );
+
+        return {
+          ...e.data(),
+          uid: e.id,
+          users: users.map(user => user.data() as UserType),
+        } as RoomType;
+      }),
+    );
 
     return result;
   }
@@ -102,7 +118,7 @@ export default class RoomDataSource {
     const rooms: RoomType[] = [];
 
     roomsRef.forEach(ref => {
-      rooms.push(ref.data() as RoomType);
+      rooms.push({ ...ref.data(), uid: ref.id } as RoomType);
     });
 
     console.log('room', rooms);

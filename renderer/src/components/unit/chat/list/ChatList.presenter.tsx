@@ -39,7 +39,7 @@ export default function ChatListUI({
       <S.ChatListWrapper>
         {(roomList || []).map(room => (
           <button
-            key={room?.uid}
+            key={room.uid}
             type='button'
             onClick={onClickRoomItem(room?.uid, room.type)}
           >

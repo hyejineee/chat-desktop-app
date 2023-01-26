@@ -5,7 +5,8 @@ import randomColor from 'randomcolor';
 import { useMemo } from 'react';
 import { Control, FieldValues } from 'react-hook-form';
 import NormalInput from 'src/components/common/inputs/NormalInput/NormalInput';
-import UserItem from 'src/components/common/items/UserItem';
+import UserItem from 'src/components/common/items/userItem/UserItem';
+
 import { TitleText } from 'src/components/common/styles/common.styles';
 import * as S from './CreateOpenChat.styles';
 

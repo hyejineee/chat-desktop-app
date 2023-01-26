@@ -16,7 +16,9 @@ export default function ChatListContainer() {
     router.push(CREATE_OPEN_CHAT_PAGE);
   };
 
-  const handleClickRoomItem = (roomId: string, type: string) => () => {};
+  const handleClickRoomItem = (roomId: string, type: string) => () => {
+    router.push(`/chat/${roomId}?type=${type}`);
+  };
 
   useEffect(() => {
     fetchAllRooms();
