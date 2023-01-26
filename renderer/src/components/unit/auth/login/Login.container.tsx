@@ -13,6 +13,7 @@ import {
   ErrorText,
   InputWrapper,
 } from 'src/components/common/styles/common.styles';
+import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import * as S from './Login.styles';
 
 export default function LoginContainer() {
@@ -23,14 +24,16 @@ export default function LoginContainer() {
 
   const router = useRouter();
   const login = useLogin();
+  const showAlert = useShowAlertMessage();
 
   const handleClickLogin = handleSubmit(async (inputs: any) => {
     try {
       await login(inputs as LoginArgsType);
       router.push(CHAT_PAGE);
     } catch (e) {
-      // TODO : 에러 메세지 띄우기
-      console.log(e);
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
     }
   });
 

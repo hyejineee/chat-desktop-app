@@ -20,6 +20,8 @@ import MessageDataSource from '@dataSources/MessageDataSource';
 import MessageRepository from '@repositories/MessageRepository';
 import { Global } from '@emotion/react';
 import resetStyles from 'src/components/common/styles/reset.styles';
+import { AlertMessageProvider } from '@contexts/AlertMessageContext';
+import AlertMessage from 'src/components/common/alert/AlertMessage';
 
 const authDataSource = new AuthDataSource(auth, db);
 const userDataSource = new UserDataSource(db);
@@ -41,18 +43,21 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
-      <AuthProvider authRepository={authRepository}>
-        <UserProvider userRepository={userRepository}>
-          <RoomProvider roomRepository={roomRepository}>
-            <MessageProvider messageRepository={messageRepository}>
-              <Global styles={resetStyles} />
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </MessageProvider>
-          </RoomProvider>
-        </UserProvider>
-      </AuthProvider>
+      <AlertMessageProvider>
+        <AuthProvider authRepository={authRepository}>
+          <UserProvider userRepository={userRepository}>
+            <RoomProvider roomRepository={roomRepository}>
+              <MessageProvider messageRepository={messageRepository}>
+                <AlertMessage />
+                <Global styles={resetStyles} />
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </MessageProvider>
+            </RoomProvider>
+          </UserProvider>
+        </AuthProvider>
+      </AlertMessageProvider>
     </>
   );
 }

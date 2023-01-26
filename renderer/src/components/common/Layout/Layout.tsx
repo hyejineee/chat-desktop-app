@@ -7,6 +7,7 @@ import Menu from './Menu';
 import * as S from './Layout.styles';
 
 const HIDDEN_MENU_PAGE = [
+  '/home',
   '/auth/login',
   '/auth/register',
   '/chat/create',

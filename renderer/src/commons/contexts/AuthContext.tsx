@@ -7,6 +7,7 @@ import {
   RegisterUserArgsType,
 } from '@type/auth';
 
+
 type UseAuthContextPropsTypes = {
   authRepository: IAuthRepository;
 };
@@ -14,7 +15,7 @@ type UseAuthContextPropsTypes = {
 const useAuthContext: (props: UseAuthContextPropsTypes) => IAuthContext = ({
   authRepository,
 }: UseAuthContextPropsTypes) => {
-  const login = (args: LoginArgsType) => authRepository.login(args);
+  const login = async (args: LoginArgsType) => authRepository.login(args);
 
   const logout = () => authRepository.logout();
 

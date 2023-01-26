@@ -1,4 +1,5 @@
 import { ArrowsAltOutlined } from '@ant-design/icons';
+import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import { useFetchLoggedInUser } from '@contexts/AuthContext';
 import {
   useSetMessageListener,
@@ -19,6 +20,7 @@ export default function ChatRoomContainer() {
 
   const messages = useMessages();
   const sendMessage = useSendMessage();
+  const showAlert = useShowAlertMessage();
   const fetchMessages = useSetMessageListener();
   const fetchLoggedInUser = useFetchLoggedInUser();
 
@@ -27,14 +29,21 @@ export default function ChatRoomContainer() {
     const type = String(router.query.type || '');
 
     if (!roomId || !type) return;
-    fetchMessages(roomId, type);
 
-    const getUser = async () => {
-      const user = await fetchLoggedInUser();
-      setLoggedInUser(user);
-    };
+    try {
+      fetchMessages(roomId, type);
 
-    getUser();
+      const getUser = async () => {
+        const user = await fetchLoggedInUser();
+        setLoggedInUser(user);
+      };
+
+      getUser();
+    } catch (e) {
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
+    }
   }, []);
 
   const handleClickSendMessage = () => {
@@ -44,7 +53,14 @@ export default function ChatRoomContainer() {
 
     if (!roomId || !message) return;
 
-    sendMessage(message, roomId, type);
+    try {
+      sendMessage(message, roomId, type);
+    } catch (e) {
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
+    }
+
     reset({ message: '' });
   };
 

@@ -11,6 +11,7 @@ import {
   ErrorText,
   InputWrapper,
 } from 'src/components/common/styles/common.styles';
+import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import * as S from './RegisterUser.styles';
 
 export default function RegisterUserContainer() {
@@ -21,6 +22,7 @@ export default function RegisterUserContainer() {
 
   const router = useRouter();
   const registerUser = useRegisterUser();
+  const showAlert = useShowAlertMessage();
 
   const handleClickRegister = handleSubmit(async (inputs: any) => {
     const args: RegisterUserArgsType = {
@@ -33,8 +35,9 @@ export default function RegisterUserContainer() {
       await registerUser(args);
       router.replace(LOGIN_PAGE);
     } catch (e) {
-      // TODO : 에러 메세지 띄우기
-      console.log(e);
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
     }
   });
 

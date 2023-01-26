@@ -10,7 +10,7 @@ export interface IAuthContext {
   login: (args: LoginArgsType) => Promise<void>;
   logout: () => void;
   registerUser: (args: RegisterUserArgsType) => Promise<void>;
-  checkLoggedIn: () => Promise<boolean>;
+  checkLoggedIn: () => Promise<boolean> | undefined;
   fetchLoggedInUser: () => Promise<UserType | null>;
 }
 

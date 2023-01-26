@@ -1,3 +1,4 @@
+import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import { useCreatePersonalChatRoom } from '@contexts/RoomContext';
 import { useFetchAllUser, useUserList } from '@contexts/UserContext';
 import { useRouter } from 'next/router';
@@ -7,6 +8,7 @@ import UserListUI from './UserList.presenter';
 export default function UserListContainer() {
   const router = useRouter();
   const userList = useUserList();
+  const showAlert = useShowAlertMessage();
   const fetchAllUser = useFetchAllUser();
   const createPersonalChatRoom = useCreatePersonalChatRoom();
 
@@ -16,12 +18,20 @@ export default function UserListContainer() {
 
       router.push(`/chat/${roomId}?type=personal`);
     } catch (e) {
-      // TODO : 에러 메세지 출력
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
     }
   };
 
   useEffect(() => {
-    fetchAllUser();
+    try {
+      fetchAllUser();
+    } catch (e) {
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
+    }
   }, []);
 
   return (

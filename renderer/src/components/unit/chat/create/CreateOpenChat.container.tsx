@@ -1,3 +1,4 @@
+import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import { useCreateOpenChatRoom } from '@contexts/RoomContext';
 import { useFetchAllUser, useUserList } from '@contexts/UserContext';
 import { UserType } from '@type/auth';
@@ -14,8 +15,9 @@ export default function CreateOpenChatContainer() {
 
   const router = useRouter();
   const userList = useUserList();
-  const createOpenChatRoom = useCreateOpenChatRoom();
   const fetchAllUser = useFetchAllUser();
+  const showAlert = useShowAlertMessage();
+  const createOpenChatRoom = useCreateOpenChatRoom();
 
   const handleClickCreate = async () => {
     const uids = selectedUser?.map(e => e.uid);
@@ -27,7 +29,9 @@ export default function CreateOpenChatContainer() {
       const roomId = await createOpenChatRoom(uids, title);
       router.push(`/chat/${roomId}?type=open`);
     } catch (e) {
-      // TODO: 에러 처리하기
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
     }
   };
 
@@ -41,7 +45,13 @@ export default function CreateOpenChatContainer() {
   };
 
   useEffect(() => {
-    fetchAllUser();
+    try {
+      fetchAllUser();
+    } catch (e) {
+      if (e instanceof Error) {
+        showAlert('error', e.message);
+      }
+    }
   }, []);
 
   return (
