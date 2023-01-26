@@ -42,10 +42,8 @@ export default class RoomDataSource {
 
     if (existRoomId) return existRoomId;
 
-    const userRefs = [uid, pairUid].map(e => doc(this.store, `Users/${e}`));
-
     const roomDocRef = await addDoc(personalChatRoomRef, {
-      users: userRefs,
+      users: [uid, pairUid],
       messages: [],
       type: 'personal',
     });
@@ -68,10 +66,8 @@ export default class RoomDataSource {
       this.OPEN_CHAT_ROOM_COLLECTION,
     );
 
-    const userRefs = uids.map(e => doc(this.store, `Users/${e}`));
-
     const roomDocRef = await addDoc(openChatRoomRef, {
-      users: userRefs,
+      users: uids,
       title,
       owner: ownerUid,
       messages: [],
@@ -94,20 +90,7 @@ export default class RoomDataSource {
 
     const rooms = await Promise.all(roomRefs.map((ref: any) => getDoc(ref)));
 
-    const result = await Promise.all(
-      rooms.map(async e => {
-        const userRefs = e.data().users;
-        const users = await Promise.all(
-          userRefs.map((ref: any) => getDoc(ref)),
-        );
-
-        return {
-          ...e.data(),
-          uid: e.id,
-          users: users.map(user => user.data() as UserType),
-        } as RoomType;
-      }),
-    );
+    const result = rooms.map(e => ({ ...e.data(), uid: e.id } as RoomType));
 
     return result;
   }

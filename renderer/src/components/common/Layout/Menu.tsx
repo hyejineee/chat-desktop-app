@@ -42,6 +42,7 @@ export default function Menu() {
   return (
     <AntdMenu
       mode='inline'
+      defaultSelectedKeys={[router.pathname]}
       inlineCollapsed
       items={items}
       onClick={handleClickMenuItem}

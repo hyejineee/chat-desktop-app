@@ -62,7 +62,7 @@ export default function CreateOpenChatUI({
       <S.LabelTextWrapper>초대 유저</S.LabelTextWrapper>
       <S.SelectedUserListWrapper>
         {selectedUserList?.map(user => (
-          <S.SelectedUserWrapper>
+          <S.SelectedUserWrapper key={user.uid}>
             <S.UserImageWrapper style={{ backgroundColor: color }}>
               {user.nickName[0]}
             </S.UserImageWrapper>
@@ -74,7 +74,7 @@ export default function CreateOpenChatUI({
       <S.LabelTextWrapper>유저 리스트</S.LabelTextWrapper>
       <S.UserListWrapper>
         {userList?.map(user => (
-          <button type='button' onClick={onClickUserItem(user)}>
+          <button key={user.uid} type='button' onClick={onClickUserItem(user)}>
             <UserItem user={user}>
               <Checkbox checked={_.includes(selectedUserList, user)} />
             </UserItem>

@@ -21,6 +21,7 @@ export const TitleWrapper = styled.p`
 `;
 
 export const MessageWrapper = styled.p`
+  margin-top: 5px;
   font-size: 12px;
   color: gray;
 `;
