@@ -1,5 +1,5 @@
-import { UserType } from '@type/auth';
-import { MessageType } from '@type/message';
+import { UserType } from '@type/auth.types';
+import { MessageType } from '@type/message.types';
 import { Button, Input } from 'antd';
 import { useEffect, useRef } from 'react';
 import { Control, FieldValues } from 'react-hook-form';

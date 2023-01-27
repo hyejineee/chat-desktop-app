@@ -1,4 +1,4 @@
-import { MessageType } from '@type/message';
+import { MessageType } from '@type/message.types';
 import {
   arrayUnion,
   doc,

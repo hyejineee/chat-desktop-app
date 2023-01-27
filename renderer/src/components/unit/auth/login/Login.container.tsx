@@ -1,7 +1,7 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { CHAT_PAGE, REGISTER_USER_PAGE } from '@constants/paths';
 import { useLogin } from '@contexts/AuthContext';
-import { LoginArgsType } from '@type/auth';
+import { LoginArgsType } from '@type/auth.types';
 import { Button } from 'antd';
 import Link from 'next/link';
 import { yupResolver } from '@hookform/resolvers/yup';

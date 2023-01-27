@@ -1,6 +1,6 @@
 import { LOGIN_PAGE } from '@constants/paths';
 import { useRegisterUser } from '@contexts/AuthContext';
-import { RegisterUserArgsType } from '@type/auth';
+import { RegisterUserArgsType } from '@type/auth.types';
 import { Button } from 'antd';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';

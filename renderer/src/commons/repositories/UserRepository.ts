@@ -1,13 +1,20 @@
 import UserDataSource from '@dataSources/UserDataSource';
-import { IAuthRepository, UserType } from '@type/auth';
-import { IUserRepository } from '@type/user';
+import * as authTypes from '@type/auth.types';
+import APP_TYPES from '@type/container.types';
+import { IUserRepository } from '@type/user.types';
+import { inject, injectable } from 'inversify';
 
+@injectable()
 export default class UserRepository implements IUserRepository {
   private userDataSource: UserDataSource;
 
-  private authRepository: IAuthRepository;
+  private authRepository: authTypes.IAuthRepository;
 
-  constructor(dataSource: UserDataSource, authRepository: IAuthRepository) {
+  constructor(
+    @inject(APP_TYPES.UserDataSource) dataSource: UserDataSource,
+    @inject(APP_TYPES.IAuthRepository)
+    authRepository: authTypes.IAuthRepository,
+  ) {
     this.userDataSource = dataSource;
     this.authRepository = authRepository;
   }
@@ -19,8 +26,8 @@ export default class UserRepository implements IUserRepository {
 
     const fetched = await this.userDataSource.fetchAllUser(currentUser.uid);
 
-    const users: UserType[] = [];
-    fetched.forEach(user => users.push(user.data() as UserType));
+    const users: authTypes.UserType[] = [];
+    fetched.forEach(user => users.push(user.data() as authTypes.UserType));
 
     return users;
   }

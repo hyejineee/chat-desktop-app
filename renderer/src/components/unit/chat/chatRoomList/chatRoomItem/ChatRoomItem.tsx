@@ -1,4 +1,4 @@
-import { RoomType } from '@type/room';
+import { RoomType } from '@type/room.types';
 import randomColor from 'randomcolor';
 import { useMemo } from 'react';
 import moment from 'moment';

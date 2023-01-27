@@ -1,7 +1,7 @@
 import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import { useCreateOpenChatRoom } from '@contexts/RoomContext';
 import { useFetchAllUser, useUserList } from '@contexts/UserContext';
-import { UserType } from '@type/auth';
+import { UserType } from '@type/auth.types';
 import _ from 'lodash';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';

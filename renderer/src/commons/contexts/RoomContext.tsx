@@ -1,4 +1,4 @@
-import { IRoomContext, IRoomRepository, RoomType } from '@type/room';
+import { IRoomContext, IRoomRepository, RoomType } from '@type/room.types';
 import constate from 'constate';
 import { useState } from 'react';
 

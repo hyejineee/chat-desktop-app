@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { StylePropsType } from '@type/style';
+import { StylePropsType } from '@type/style.types';
 
 export const ErrorText = styled.p`
   color: red;

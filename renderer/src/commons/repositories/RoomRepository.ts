@@ -1,13 +1,20 @@
 import RoomDataSource from '@dataSources/RoomDataSource';
-import { IAuthRepository } from '@type/auth';
-import { IRoomRepository } from '@type/room';
+import * as authTypes from '@type/auth.types';
+import APP_TYPES from '@type/container.types';
+import { IRoomRepository } from '@type/room.types';
+import { inject, injectable } from 'inversify';
 
+@injectable()
 export default class RoomRepository implements IRoomRepository {
   private roomDataSource: RoomDataSource;
 
-  private authRepository: IAuthRepository;
+  private authRepository: authTypes.IAuthRepository;
 
-  constructor(roomDataSource: RoomDataSource, authRepository: IAuthRepository) {
+  constructor(
+    @inject(APP_TYPES.RoomDataSource) roomDataSource: RoomDataSource,
+    @inject(APP_TYPES.IAuthRepository)
+    authRepository: authTypes.IAuthRepository,
+  ) {
     this.roomDataSource = roomDataSource;
     this.authRepository = authRepository;
   }

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { StylePropsType } from '@type/style';
+import { StylePropsType } from '@type/style.types';
 
 export const Wrapper = styled.div`
   width: 100%;

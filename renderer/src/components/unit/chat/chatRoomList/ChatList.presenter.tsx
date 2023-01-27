@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { RoomType } from '@type/room';
+import { RoomType } from '@type/room.types';
 import ChatRoomItem from 'src/components/unit/chat/chatRoomList/chatRoomItem/ChatRoomItem';
 import {
   GuidanceText,

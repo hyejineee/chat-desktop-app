@@ -2,7 +2,7 @@ import {
   IMessageContext,
   IMessageRepository,
   MessageType,
-} from '@type/message';
+} from '@type/message.types';
 import constate from 'constate';
 import { useRef, useState } from 'react';
 import { Subscription } from 'rxjs';

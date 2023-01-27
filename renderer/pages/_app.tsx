@@ -2,11 +2,12 @@
 import React from 'react';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
+import 'reflect-metadata';
+import appContainer from '@type/container';
 
 import 'antd/dist/antd.css';
 import Layout from 'src/components/common/layout/Layout';
 import { AuthProvider } from '@contexts/AuthContext';
-import AuthRepository from '@repositories/AuthRepository';
 import AuthDataSource from '@dataSources/AuthDataSource';
 import { auth, db } from 'src/commons/settings/firebaseConfig';
 import { UserProvider } from '@contexts/UserContext';
@@ -22,21 +23,29 @@ import { Global } from '@emotion/react';
 import resetStyles from 'src/components/common/styles/reset.styles';
 import { AlertMessageProvider } from '@contexts/AlertMessageContext';
 import AlertMessage from 'src/components/common/alert/AlertMessage';
-
-const authDataSource = new AuthDataSource(auth, db);
-const userDataSource = new UserDataSource(db);
-const roomDataSource = new RoomDataSource(db);
-const messageDataSource = new MessageDataSource(db);
-
-const authRepository = new AuthRepository(authDataSource);
-const userRepository = new UserRepository(userDataSource, authRepository);
-const roomRepository = new RoomRepository(roomDataSource, authRepository);
-const messageRepository = new MessageRepository(
-  messageDataSource,
-  authRepository,
-);
+import { IAuthRepository } from '@type/auth.types';
+import APP_TYPES from '@type/container.types';
+import { IMessageRepository } from '@type/message.types';
+import { IUserRepository } from '@type/user.types';
+import { IRoomRepository } from '@type/room.types';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const authRepository = appContainer.get<IAuthRepository>(
+    APP_TYPES.IAuthRepository,
+  );
+
+  const messageRepository = appContainer.get<IMessageRepository>(
+    APP_TYPES.IMessageRepository,
+  );
+
+  const userRepository = appContainer.get<IUserRepository>(
+    APP_TYPES.IUserRepository,
+  );
+
+  const roomRepository = appContainer.get<IRoomRepository>(
+    APP_TYPES.IRoomRepository,
+  );
+
   return (
     <>
       <Head>

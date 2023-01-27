@@ -1,4 +1,4 @@
-import { UserType } from './auth';
+import { UserType } from './auth.types';
 
 export interface IUserRepository {
   fetchAllUser: () => Promise<UserType[] | null>;

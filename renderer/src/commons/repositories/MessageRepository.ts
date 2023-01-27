@@ -1,19 +1,24 @@
 import { BehaviorSubject } from 'rxjs';
-import { IMessageRepository, MessageType } from '@type/message';
+import { IMessageRepository, MessageType } from '@type/message.types';
 import MessageDataSource from '@dataSources/MessageDataSource';
-import { IAuthRepository } from '@type/auth';
 import { Timestamp } from 'firebase/firestore';
+import APP_TYPES from '@type/container.types';
+import { inject, injectable } from 'inversify';
 
+import * as authModules from '@type/auth.types';
+
+@injectable()
 export default class MessageRepository implements IMessageRepository {
   private messages = new BehaviorSubject<MessageType[]>([]);
 
   private messageDataSource: MessageDataSource;
 
-  private authRepository: IAuthRepository;
+  private authRepository: authModules.IAuthRepository;
 
   constructor(
-    messageDataSource: MessageDataSource,
-    authRepository: IAuthRepository,
+    @inject(APP_TYPES.MessageDataSource) messageDataSource: MessageDataSource,
+    @inject(APP_TYPES.IAuthRepository)
+    authRepository: authModules.IAuthRepository,
   ) {
     this.messageDataSource = messageDataSource;
     this.authRepository = authRepository;

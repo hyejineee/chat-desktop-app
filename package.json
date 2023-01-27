@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@babel/core": "^7.20.12",
+    "@babel/plugin-proposal-decorators": "^7.20.13",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@hookform/resolvers": "^2.9.10",
@@ -29,6 +31,8 @@
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "antd": "^4.22.8",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "constate": "^3.3.2",
     "electron": "^21.3.3",
     "electron-builder": "^23.6.0",
@@ -53,6 +57,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "typescript": "^4.9.4",
     "yup": "^0.32.11"

@@ -1,5 +1,5 @@
 import { SendOutlined } from '@ant-design/icons';
-import { UserType } from '@type/auth';
+import { UserType } from '@type/auth.types';
 import { ReactNode, useMemo } from 'react';
 import randomColor from 'randomcolor';
 import * as S from './UserItem.styles';

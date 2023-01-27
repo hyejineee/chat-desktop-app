@@ -4,14 +4,18 @@ import {
   LoginArgsType,
   RegisterUserArgsType,
   UserType,
-} from '@type/auth';
+} from '@type/auth.types';
+import APP_TYPES from '@type/container.types';
 
+import { inject, injectable } from 'inversify';
+
+@injectable()
 export default class AuthRepository implements IAuthRepository {
   private authDataSource: AuthDataSource;
 
   private loggedInUser: UserType | null = null;
 
-  constructor(dataSource: AuthDataSource) {
+  constructor(@inject(APP_TYPES.AuthDataSource) dataSource: AuthDataSource) {
     this.authDataSource = dataSource;
   }
 
@@ -33,7 +37,7 @@ export default class AuthRepository implements IAuthRepository {
 
     if (user !== null && this.loggedInUser) return true;
 
-    if (user !== null && this.loggedInUser === null ) {
+    if (user !== null && this.loggedInUser === null) {
       const fetchUser = await this.authDataSource.fetchUser(user.uid);
       this.loggedInUser = fetchUser;
       return true;

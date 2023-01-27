@@ -1,6 +1,6 @@
 import { CREATE_OPEN_CHAT_PAGE } from '@constants/paths';
 import { useEnterOpenChatRoom } from '@contexts/RoomContext';
-import { RoomType } from '@type/room';
+import { RoomType } from '@type/room.types';
 import { useRouter } from 'next/router';
 import ChatListUI from './ChatList.presenter';
 

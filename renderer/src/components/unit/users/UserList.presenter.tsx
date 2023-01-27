@@ -1,5 +1,5 @@
 import { SendOutlined } from '@ant-design/icons';
-import { UserType } from '@type/auth';
+import { UserType } from '@type/auth.types';
 import UserItem from 'src/components/common/items/userItem/UserItem';
 
 import {

@@ -4,7 +4,11 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { LoginArgsType, RegisterUserArgsType, UserType } from '@type/auth';
+import {
+  LoginArgsType,
+  RegisterUserArgsType,
+  UserType,
+} from '@type/auth.types';
 import {
   collection,
   doc,
@@ -15,6 +19,7 @@ import {
   where,
   getDoc,
 } from 'firebase/firestore';
+
 
 export default class AuthDataSource {
   private firebaseAuth: Auth;

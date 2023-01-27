@@ -1,5 +1,5 @@
-import { UserType } from '@type/auth';
-import { IUserContext, IUserRepository } from '@type/user';
+import { UserType } from '@type/auth.types';
+import { IUserContext, IUserRepository } from '@type/user.types';
 import constate from 'constate';
 import { useState } from 'react';
 

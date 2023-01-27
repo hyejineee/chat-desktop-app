@@ -6,7 +6,7 @@ import {
   useSendMessage,
   useMessages,
 } from '@contexts/MessageContext';
-import { UserType } from '@type/auth';
+import { UserType } from '@type/auth.types';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';

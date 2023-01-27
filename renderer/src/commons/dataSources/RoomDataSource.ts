@@ -1,5 +1,5 @@
-import { UserType } from '@type/auth';
-import { RoomType } from '@type/room';
+import { UserType } from '@type/auth.types';
+import { RoomType } from '@type/room.types';
 import {
   addDoc,
   arrayUnion,

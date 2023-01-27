@@ -1,3 +1,6 @@
+import { Timestamp } from 'firebase/firestore';
+import { Observable } from 'rxjs';
+
 export interface IMessageRepository {
   subscribeMessage: (
     roomId: string,

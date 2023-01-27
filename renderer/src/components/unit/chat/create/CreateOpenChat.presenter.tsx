@@ -1,4 +1,4 @@
-import { UserType } from '@type/auth';
+import { UserType } from '@type/auth.types';
 import { Checkbox } from 'antd';
 import _ from 'lodash';
 import randomColor from 'randomcolor';

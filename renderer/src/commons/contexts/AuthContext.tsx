@@ -5,7 +5,7 @@ import {
   IAuthRepository,
   LoginArgsType,
   RegisterUserArgsType,
-} from '@type/auth';
+} from '@type/auth.types';
 
 
 type UseAuthContextPropsTypes = {

@@ -9,7 +9,10 @@
       "@contexts/*": ["src/commons/contexts/*"],
       "@type/*": ["src/commons/type/*"],
       "@utils/*": ["src/commons/utils/*"]
-    }
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["reflect-metadata", "node"]
   },
   "include": [
     "next-env.d.ts",
