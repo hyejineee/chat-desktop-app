@@ -41,9 +41,9 @@
 - repository에 rxjs의 subject를 두어 컴포넌트에서 직접적으로 onSnapshot 메소드에 연결되지 않도록 구현했습니다.
 
 ![](./images/diagram2.png)
-<div style="display : flex">
-<img src='./images/personal-chat.gif' style="width:400px;object-fit:contain">&nbsp;&nbsp;
-<img src='./images/group-chat.gif' style="width:405px;object-fit:contain">
+<div style="display : flex; justify-content: space-between;">
+<img src='./images/personal-chat.gif' style="width:450px;object-fit:contain">&nbsp;&nbsp;
+<img src='./images/group-chat.gif' style="width:455px;object-fit:contain">
 </div>
 
 <br/>
@@ -53,7 +53,7 @@
 ### 그룹 채팅방 생성  
 - 제목과 초대할 유저를 선택하여 그룹 채팅방을 만들 수 있도록 구현했습니다.
 
-<div style="display : flex">
+<div style="display : flex; ">
 <img src='./images/create-open-chat.gif' style="width:300px">&nbsp;&nbsp;
 </div>
 
@@ -62,9 +62,9 @@
 
 ### 유저 리스트, 나의 채팅 리스트. 오픈 채팅 리스트
 <div style="display : flex">
-<img src='./images/user-list.png' style="width:200px">
-<img src='./images/my-chat-list.png' style="width:200px">
-<img src='./images/open-chat-list.png' style="width:200px">
+<img src='./images/user-list.png' style="width:300px">
+<img src='./images/my-chat-list.png' style="width:300px">
+<img src='./images/open-chat-list.png' style="width:300px">
 </div>
 
 ## 회고 <a id="2"></a>
@@ -77,8 +77,7 @@
 ## 기술 스택 <a id="3"></a>
 
 
-<img src="https://img.shields.io/badge/nextjs-000000?style=for-the-badge&logo=next.js&logoColor=white">  
-<img src="https://img.shields.io/badge/electron-47848F?style=for-the-badge&logo=electron&logoColor=white"> 
+<img src="https://img.shields.io/badge/nextjs-000000?style=for-the-badge&logo=next.js&logoColor=white"> <img src="https://img.shields.io/badge/electron-47848F?style=for-the-badge&logo=electron&logoColor=white"> 
 <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=black"> 
 <img src="https://img.shields.io/badge/emotion-EF2D5E?style=for-the-badge&logo=emotion&logoColor=white"> 
 <img src="https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=ReactiveX&logoColor=white"> 
