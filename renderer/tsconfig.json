@@ -12,14 +12,21 @@
     },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "types": ["reflect-metadata", "node"]
+    "types": [
+      "reflect-metadata",
+      "node",
+      "jest",
+      "@testing-library/jest-dom",
+      "jest-plugin-context"
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "next.config.js",
-    "src/commons/settings/firebaseConfig.ts"
+    "src/commons/settings/firebaseConfig.ts",
+    "../jest.config.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/**/*.test.tsx", "src/**/*.test.ts"]
 }
