@@ -27,7 +27,7 @@ export default function CreateOpenChatContainer() {
 
     try {
       const roomId = await createOpenChatRoom(uids, title);
-      router.push(`/chat/${roomId}?type=open`);
+      router.push(`/chat/${roomId}?type=open&title=${title}`);
     } catch (e) {
       if (e instanceof Error) {
         showAlert('error', e.message);
