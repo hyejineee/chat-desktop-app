@@ -25,13 +25,12 @@
 <br/>
 
 ### 로그인, 회원가입 
+- Firebase의 Authentication을 사용해 로그인, 회원가입 기능을 구현했습니다.
+- react-hook-form과 yup을 사용해 입력값의 유효성 검사 기능을 구현했습니다.
+
 <div style="display : flex">
 <img src='./images/login.gif' style="width:300px">&nbsp;&nbsp;
 <img src='./images/join.gif' style="width:300px">
-<ul>
-<li>Firebase의 Authentication을 사용해 로그인, 회원가입 기능을 구현했습니다. </li>
-<li>react-hook-form과 yup을 사용해 입력값의 유효성 검사 기능을 구현했습니다. </li>
-</ul>
 </div>
 
 <br/>
@@ -52,12 +51,10 @@
 
 
 ### 그룹 채팅방 생성  
+- 제목과 초대할 유저를 선택하여 그룹 채팅방을 만들 수 있도록 구현했습니다.
 
 <div style="display : flex">
 <img src='./images/create-open-chat.gif' style="width:300px">&nbsp;&nbsp;
-<ul>
-<li>제목과 초대할 유저를 선택하여 그룹 채팅방을 만들 수 있도록 구현했습니다.</li>
-</ul>
 </div>
 
 <br/>
@@ -65,8 +62,9 @@
 
 ### 유저 리스트, 나의 채팅 리스트. 오픈 채팅 리스트
 <div style="display : flex">
-<img src='./images/user-list.png' style="width:300px">&nbsp;&nbsp;
-<img src='./images/my-chat-list.png' style="width:300px">
+<img src='./images/user-list.png' style="width:200px">
+<img src='./images/my-chat-list.png' style="width:200px">
+<img src='./images/open-chat-list.png' style="width:200px">
 </div>
 
 ## 회고 <a id="2"></a>
