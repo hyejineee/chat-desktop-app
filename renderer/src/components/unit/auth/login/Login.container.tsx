@@ -14,6 +14,10 @@ import {
   InputWrapper,
 } from 'src/components/common/styles/common.styles';
 import { useShowAlertMessage } from '@contexts/AlertMessageContext';
+import {
+  EMAIL_PLACEHOLDER,
+  PASSWORD_PLACEHOLDER,
+} from '@constants/placeholder';
 import * as S from './Login.styles';
 
 export default function LoginContainer() {
@@ -46,7 +50,7 @@ export default function LoginContainer() {
             type='email'
             name='email'
             control={control}
-            placeholder='이메일을 입력해 주세요.'
+            placeholder={EMAIL_PLACEHOLDER}
             prefix={<UserOutlined />}
           />
           <ErrorText>{String(formState.errors.email?.message || '')}</ErrorText>
@@ -57,7 +61,7 @@ export default function LoginContainer() {
             type='password'
             name='password'
             control={control}
-            placeholder='비밀번호를 입력해 주세요.'
+            placeholder={PASSWORD_PLACEHOLDER}
             prefix={<LockOutlined />}
           />
           <ErrorText>
@@ -79,9 +83,9 @@ export default function LoginContainer() {
 
         <S.RegisterGuidanceWrpper>
           아직 계정이 없으신가요?{' '}
-          <Link href={REGISTER_USER_PAGE}>
-            <u style={{ cursor: 'pointer' }}>회원가입</u>
-          </Link>
+          <u style={{ cursor: 'pointer' }}>
+            <Link href={REGISTER_USER_PAGE}>회원가입</Link>
+          </u>
         </S.RegisterGuidanceWrpper>
       </S.LoginFormWrapper>
     </S.Wrapper>

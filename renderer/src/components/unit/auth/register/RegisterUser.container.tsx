@@ -12,6 +12,12 @@ import {
   InputWrapper,
 } from 'src/components/common/styles/common.styles';
 import { useShowAlertMessage } from '@contexts/AlertMessageContext';
+import {
+  EMAIL_PLACEHOLDER,
+  NICKNAME_PLACEHOLDER,
+  PASSWORD_PLACEHOLDER,
+  RE_PASSWORD_PLACEHOLDER,
+} from '@constants/placeholder';
 import * as S from './RegisterUser.styles';
 
 export default function RegisterUserContainer() {
@@ -50,7 +56,7 @@ export default function RegisterUserContainer() {
             type='email'
             name='email'
             control={control}
-            placeholder='이메일을 입력해 주세요.'
+            placeholder={EMAIL_PLACEHOLDER}
           />
           <ErrorText>{String(formState.errors.email?.message || '')}</ErrorText>
         </InputWrapper>
@@ -59,7 +65,7 @@ export default function RegisterUserContainer() {
           <NormalInput
             name='nickName'
             control={control}
-            placeholder='닉네임을 입력해 주세요.'
+            placeholder={NICKNAME_PLACEHOLDER}
           />
           <ErrorText>
             {String(formState.errors.nickName?.message || '')}
@@ -71,7 +77,7 @@ export default function RegisterUserContainer() {
             type='password'
             name='password'
             control={control}
-            placeholder='비밀번호를 입력해 주세요.'
+            placeholder={PASSWORD_PLACEHOLDER}
           />
           <ErrorText>
             {String(formState.errors.password?.message || '')}
@@ -83,7 +89,7 @@ export default function RegisterUserContainer() {
             type='password'
             name='passwordCheck'
             control={control}
-            placeholder='비밀번호를 다시 입력해 주세요.'
+            placeholder={RE_PASSWORD_PLACEHOLDER}
           />
           <ErrorText>
             {String(formState.errors.passwordCheck?.message || '')}
