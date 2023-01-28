@@ -19,7 +19,16 @@ const customJestConfig = {
     '^@contexts/(.*)': '<rootDir>/renderer/src/commons/contexts/$1',
     '^@utils/(.*)': '<rootDir>/renderer/src/commons/utils/$1',
   },
-  collectCoverageFrom: ['src/**/*.[jt]s?(x)', '!pages/', '!src/commons/settings/*.[jt]s?(x)', '!src/commons/dataSources/**/*.[jt]s?(x)', '!**/*.styles.[jt]s?(x)', '!**/*.types.[jt]s?(x)'],
+  collectCoverageFrom: [
+    'renderer/src/**/*.[jt]s?(x)',
+    '!renderer/pages/',
+    '!renderer/src/commons/settings/*.[jt]s?(x)',
+    '!renderer/src/commons/dataSources/**/*.[jt]s?(x)',
+    '!renderer/src/commons/constants/*.[jt]s?(x)',
+    '!renderer/src/commons/utils/*.[jt]s?(x)',
+    '!**/*.styles.[jt]s?(x)',
+    '!**/*.types.[jt]s?(x)',
+  ],
   coverageThreshold: {
     global: {
       statements: 80,
