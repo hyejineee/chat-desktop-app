@@ -7,3 +7,4 @@ dist
 installFiles
 installFiles.*
 coverage
+coverage/*
