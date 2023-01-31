@@ -1,5 +1,5 @@
-## Chat Desktop App
-마음 연구소 기업 과제로 진행한 데스크탑 채팅 애플리케이션입니다. 
+# Chat Desktop App
+nextron과 firebase를 사용한 데스크탑 채팅 애플리케이션입니다. 
 - [x]  회원가입
 - [x]  로그인
 - [x]  유저 목록
