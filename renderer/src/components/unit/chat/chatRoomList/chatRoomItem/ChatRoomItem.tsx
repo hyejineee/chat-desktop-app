@@ -36,9 +36,7 @@ export default function ChatRoomItem({ room }: ChatRoomItemPropsType) {
       </S.ContentsWrapper>
 
       <S.DateWrapper>
-        {moment(
-          room.messages?.[room.messages.length - 1]?.timestamp.toDate(),
-        ).format('YYYY.MM.DD')}
+        {String(room.messages?.[room.messages.length - 1]?.timestamp) || ''}
       </S.DateWrapper>
     </S.Wrapper>
   );

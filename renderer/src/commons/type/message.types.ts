@@ -30,5 +30,5 @@ export type MessageType = {
   content: string;
   senderUid: string;
   nickName: string;
-  timestamp: Timestamp;
+  timestamp: string | Timestamp;
 };
