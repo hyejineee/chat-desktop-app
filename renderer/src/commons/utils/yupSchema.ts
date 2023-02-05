@@ -1,37 +1,35 @@
+import {
+  EMAIL_FORMAT_ERROR,
+  EMAIL_REQUIRED_ERROR,
+  NICKNAME_FORMAT_ERROR,
+  NICKNAME_REQUIRED_ERROR,
+  PASSWORD_FORMAT_ERROR,
+  PASSWORD_REQUIRED_ERROR,
+  RE_PASSWORD_FORMAT_ERROR,
+  RE_PASSWORD_REQUIRED_ERROR,
+} from '@constants/errorMessage';
 import * as yup from 'yup';
 
 export const loginSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email('올바른 이메일을 입력해 주세요.')
-    .required('이메일을 입력해 주세요.'),
+  email: yup.string().email(EMAIL_FORMAT_ERROR).required(EMAIL_REQUIRED_ERROR),
   password: yup
     .string()
-    .matches(
-      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/,
-      '영문, 숫자 조합 8~16 자리의 비밀번호를 입력해 주세요.',
-    )
-    .required('비밀번호를 입력해 주세요.'),
+    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/, PASSWORD_FORMAT_ERROR)
+    .required(PASSWORD_REQUIRED_ERROR),
 });
 
 export const registerUserSchema = yup.object().shape({
   nickName: yup
     .string()
-    .max(10, '닉네임은 10자 미만 문자여야 합니다.')
-    .required('닉네임을 입력해주세요.'),
-  email: yup
-    .string()
-    .email('올바른 이메일을 입력해 주세요.')
-    .required('이메일을 입력해 주세요.'),
+    .max(10, NICKNAME_FORMAT_ERROR)
+    .required(NICKNAME_REQUIRED_ERROR),
+  email: yup.string().email(EMAIL_FORMAT_ERROR).required(EMAIL_REQUIRED_ERROR),
   password: yup
     .string()
-    .matches(
-      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/,
-      '영문, 숫자 조합 8~16 자리의 비밀번호를 입력해 주세요.',
-    )
-    .required('비밀번호를 입력해 주세요.'),
+    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/, PASSWORD_FORMAT_ERROR)
+    .required(PASSWORD_REQUIRED_ERROR),
   passwordCheck: yup
     .string()
-    .oneOf([yup.ref('password'), null], '비밀번호가 일치하지 않습니다.')
-    .required('비밀번호를 확인해주세요.'),
+    .oneOf([yup.ref('password'), null], RE_PASSWORD_FORMAT_ERROR)
+    .required(RE_PASSWORD_REQUIRED_ERROR),
 });

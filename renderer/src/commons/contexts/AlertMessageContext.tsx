@@ -19,29 +19,15 @@ const useAlertMessageContext = () => {
     });
   };
 
-  const hideAlertMessage = () => {
-    setAlertMessage({
-      visible: false,
-      type: 'error',
-      content: '',
-    });
-  };
-
   return {
     alertMessage,
     showAlertMessage,
-    hideAlertMessage,
   };
 };
 
-export const [
-  AlertMessageProvider,
-  useAlertMessage,
-  useShowAlertMessage,
-  useHideAlertMessage,
-] = constate(
-  useAlertMessageContext,
-  value => value.alertMessage,
-  value => value.showAlertMessage,
-  value => value.hideAlertMessage,
-);
+export const [AlertMessageProvider, useAlertMessage, useShowAlertMessage] =
+  constate(
+    useAlertMessageContext,
+    value => value.alertMessage,
+    value => value.showAlertMessage,
+  );

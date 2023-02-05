@@ -6,6 +6,7 @@ import APP_TYPES from '@type/container.types';
 import { inject, injectable } from 'inversify';
 
 import * as authModules from '@type/auth.types';
+import moment from 'moment';
 
 @injectable()
 export default class MessageRepository implements IMessageRepository {
@@ -29,9 +30,13 @@ export default class MessageRepository implements IMessageRepository {
       roomId,
       roomType === 'personal' ? 'PersonalChatRooms' : 'OpenChatRooms',
       doc => {
-        const messageTypeArray = doc
-          .data()
-          ?.messages.map((e: any) => e as MessageType);
+        const messageTypeArray = doc.data()?.messages.map(
+          (e: any) =>
+            ({
+              ...e,
+              timestamp: moment(e.timestamp.toDate()).format('YYYY.MM.DD'),
+            } as MessageType),
+        );
 
         this.messages.next(messageTypeArray);
       },
