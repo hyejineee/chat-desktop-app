@@ -6,13 +6,13 @@ export interface IAuthRepository {
   fetchLoggedInUser: () => Promise<UserType | null>;
 }
 
-export interface IAuthContext {
+export type IAuthContext = {
   login: (args: LoginArgsType) => Promise<void>;
   logout: () => void;
   registerUser: (args: RegisterUserArgsType) => Promise<void>;
   checkLoggedIn: () => Promise<boolean> | undefined;
   fetchLoggedInUser: () => Promise<UserType | null>;
-}
+};
 
 export type UserType = {
   email: string;

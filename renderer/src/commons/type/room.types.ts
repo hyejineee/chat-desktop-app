@@ -1,3 +1,6 @@
+import { UserType } from './auth.types';
+import { MessageType } from './message.types';
+
 export interface IRoomRepository {
   createPersonalChatRoom: (pairUid: string) => Promise<string>;
   createOpenChatRoom: (uids: string[], title: string) => Promise<string>;
