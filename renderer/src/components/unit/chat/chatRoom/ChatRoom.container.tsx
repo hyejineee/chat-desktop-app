@@ -1,4 +1,3 @@
-import { ArrowsAltOutlined } from '@ant-design/icons';
 import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import { useFetchLoggedInUser } from '@contexts/AuthContext';
 import {
@@ -31,14 +30,13 @@ export default function ChatRoomContainer() {
     if (!roomId || !type) return;
 
     try {
-      fetchMessages(roomId, type);
-
       const getUser = async () => {
         const user = await fetchLoggedInUser();
         setLoggedInUser(user);
       };
 
       getUser();
+      fetchMessages(roomId, type);
     } catch (e) {
       if (e instanceof Error) {
         showAlert('error', e.message);
