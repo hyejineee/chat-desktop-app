@@ -1,4 +1,3 @@
-import { ArrowsAltOutlined } from '@ant-design/icons';
 import { useShowAlertMessage } from '@contexts/AlertMessageContext';
 import { useFetchLoggedInUser } from '@contexts/AuthContext';
 import {
@@ -8,14 +7,14 @@ import {
 } from '@contexts/MessageContext';
 import { UserType } from '@type/auth.types';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import ChatRoomUI from './ChatRoom.presenter';
 
 export default function ChatRoomContainer() {
   const router = useRouter();
 
-  const [loggedInUser, setLoggedInUser] = useState<UserType | null>(null);
+  const loggedInUserRef = useRef<UserType | null>(null);
   const { control, getValues, reset } = useForm();
 
   const messages = useMessages();
@@ -30,17 +29,17 @@ export default function ChatRoomContainer() {
 
     if (!roomId || !type) return;
 
+    const getUser = async () => {
+      const user = await fetchLoggedInUser();
+      loggedInUserRef.current = user;
+    };
+
     try {
       fetchMessages(roomId, type);
-
-      const getUser = async () => {
-        const user = await fetchLoggedInUser();
-        setLoggedInUser(user);
-      };
-
       getUser();
     } catch (e) {
       if (e instanceof Error) {
+        console.log('에러 발생', e.message);
         showAlert('error', e.message);
       }
     }
@@ -70,7 +69,7 @@ export default function ChatRoomContainer() {
       control={control}
       messageList={messages}
       onClickSend={handleClickSendMessage}
-      loggedInUser={loggedInUser}
+      loggedInUser={loggedInUserRef.current}
     />
   );
 }

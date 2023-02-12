@@ -1,3 +1,4 @@
+import { MESSAGE_PLACEHOLDER } from '@constants/placeholder';
 import { UserType } from '@type/auth.types';
 import { MessageType } from '@type/message.types';
 import { Button, Input } from 'antd';
@@ -41,7 +42,11 @@ export default function ChatRoomUI({
         <div ref={bottomRef} />
       </S.MessagesWrapper>
       <S.InputWrapper>
-        <NormalInput control={control} name='message' />
+        <NormalInput
+          control={control}
+          name='message'
+          placeholder={MESSAGE_PLACEHOLDER}
+        />
         <Button type='primary' shape='round' onClick={onClickSend}>
           전송
         </Button>

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const MessagesWrapper = styled.div`
+export const MessagesWrapper = styled.ul`
   flex: 4 1 0;
   overflow: scroll;
 `;
