@@ -3,7 +3,7 @@ import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import mockRouter from 'next-router-mock';
 import { createDynamicRouteParser } from 'next-router-mock/dynamic-routes';
 import { of } from 'rxjs';
-import { anything, mock, when, instance } from 'ts-mockito';
+import { anything, mock, when, instance, reset } from 'ts-mockito';
 import { AuthProvider } from '../renderer/src/commons/contexts/AuthContext';
 import { MessageProvider } from '../renderer/src/commons/contexts/MessageContext';
 import {
@@ -16,6 +16,9 @@ import {
 } from '../renderer/src/commons/type/message.types';
 import ChatRoomContainer from '../renderer/src/components/unit/chat/chatRoom/ChatRoom.container';
 import { AlertMessageProvider } from '../renderer/src/commons/contexts/AlertMessageContext';
+import { MESSAGE_PLACEHOLDER } from '../renderer/src/commons/constants/placeholder';
+import userEvent from '@testing-library/user-event';
+import AlertMessage from '../renderer/src/components/common/alert/AlertMessage';
 
 mockRouter.useParser(createDynamicRouteParser(['/chat/[chatRoomId]']));
 describe('ChatRoomContainer', () => {
@@ -44,6 +47,7 @@ describe('ChatRoomContainer', () => {
 
     render(
       <AlertMessageProvider>
+        <AlertMessage />
         <AuthProvider
           authRepository={
             authRepository === undefined
@@ -107,13 +111,76 @@ describe('ChatRoomContainer', () => {
         expect(messageItems.length).toBe(1);
       });
     });
-  });
 
-  /**
-   * 이전에 대화한 내용이 없다면 빈 화면을 출력,
-   * 이전에 대화한 내용이 있다면 메세지 리스트를 출력
-   * 메시지를 입력하고 보낼 수 있어야 함.
-   * 로그인한 유저 정보를 가져오거나 메시지를 패치할 때 에러가 발생하면 에러 메세지를 보여줘야 함.
-   * 메시지를 보낼 때 에러가 발생하면 에러 메세지를 보여줘야 함.
-   */
+    it('메시지를 입력할 수 있다.', async () => {
+      renderComponent();
+
+      const messageInput = screen.getByPlaceholderText(MESSAGE_PLACEHOLDER);
+      const inputValue = 'this is test message';
+
+      await userEvent.type(messageInput, inputValue);
+
+      expect(messageInput).toHaveDisplayValue(inputValue);
+    });
+
+    it('메시지를 전송할 수 있다.', async () => {
+      renderComponent();
+
+      const inputValue = 'this is test message';
+      const messageInput = screen.getByPlaceholderText(MESSAGE_PLACEHOLDER);
+      const sendButton = screen.getByRole('button');
+
+      await userEvent.type(messageInput, inputValue);
+      await userEvent.click(sendButton);
+
+      expect(messageInput).toHaveDisplayValue('');
+    });
+
+    context('에러 처리', () => {
+      const errorMessage = 'errorMessage';
+
+      beforeEach(() => {
+        reset(mockMessageRepository);
+      });
+
+      context('메시지 리스트를 가져올 때', () => {
+        it('에러가 발생하면 에러 메시지를 보여준다.', async () => {
+          when(
+            mockMessageRepository.subscribeMessage(anything(), anything())
+          ).thenThrow(new Error(errorMessage));
+
+          const messageRepository = instance(mockMessageRepository);
+
+          renderComponent(undefined, messageRepository);
+
+          expect(await screen.findByText(errorMessage)).toBeInTheDocument();
+        });
+      });
+
+      context('메시지를 보낼 때', () => {
+        it('에러가 발생하면 에러 메시지를 보여준다.', async () => {
+          when(
+            mockMessageRepository.sendMessage(
+              anything(),
+              anything(),
+              anything()
+            )
+          ).thenThrow(new Error(errorMessage));
+
+          const messageRepository = instance(mockMessageRepository);
+
+          renderComponent(undefined, messageRepository);
+
+          const inputValue = 'this is test message';
+          const messageInput = screen.getByPlaceholderText(MESSAGE_PLACEHOLDER);
+          const sendButton = screen.getByRole('button');
+
+          await userEvent.type(messageInput, inputValue);
+          await userEvent.click(sendButton);
+
+          expect(await screen.findByText(errorMessage)).toBeInTheDocument();
+        });
+      });
+    });
+  });
 });
