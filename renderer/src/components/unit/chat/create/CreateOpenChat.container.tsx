@@ -45,13 +45,20 @@ export default function CreateOpenChatContainer() {
   };
 
   useEffect(() => {
-    try {
-      fetchAllUser();
-    } catch (e) {
-      if (e instanceof Error) {
-        showAlert('error', e.message);
+
+    const fetchUsers = async () => {
+      try {
+        await fetchAllUser();
+      } catch (e) {
+        console.log('fetchUserError', e);
+        if (e instanceof Error) {
+          showAlert('error', e.message);
+        }
       }
-    }
+    };
+
+    fetchUsers();
+    
   }, []);
 
   return (

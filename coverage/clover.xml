@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676214864290" clover="3.2.0">
-  <project timestamp="1676214864290" name="All files">
-    <metrics statements="479" coveredstatements="222" conditionals="115" coveredconditionals="42" methods="143" coveredmethods="65" elements="737" coveredelements="329" complexity="0" loc="479" ncloc="479" packages="16" files="28" classes="28"/>
+<coverage generated="1676373875669" clover="3.2.0">
+  <project timestamp="1676373875669" name="All files">
+    <metrics statements="483" coveredstatements="298" conditionals="115" coveredconditionals="55" methods="144" coveredmethods="89" elements="742" coveredelements="442" complexity="0" loc="483" ncloc="483" packages="16" files="28" classes="28"/>
     <package name="commons.contexts">
-      <metrics statements="102" coveredstatements="72" conditionals="0" coveredconditionals="0" methods="66" coveredmethods="41"/>
+      <metrics statements="102" coveredstatements="85" conditionals="0" coveredconditionals="0" methods="66" coveredmethods="50"/>
       <file name="AlertMessageContext.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/contexts/AlertMessageContext.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="26" type="stmt"/>
-        <line num="11" count="26" type="stmt"/>
-        <line num="15" count="7" type="stmt"/>
-        <line num="22" count="26" type="stmt"/>
-        <line num="28" count="73" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="31" count="26" type="stmt"/>
-        <line num="32" count="26" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="35" type="stmt"/>
+        <line num="11" count="35" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="22" count="35" type="stmt"/>
+        <line num="28" count="93" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="31" count="35" type="stmt"/>
+        <line num="32" count="35" type="stmt"/>
       </file>
       <file name="AuthContext.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/contexts/AuthContext.tsx">
         <metrics statements="21" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="13"/>
@@ -71,55 +71,55 @@
         <line num="59" count="10" type="stmt"/>
       </file>
       <file name="RoomContext.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/contexts/RoomContext.tsx">
-        <metrics statements="34" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="9"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
+        <metrics statements="34" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="11"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
+        <line num="30" count="11" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="46" count="11" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
+        <line num="50" count="20" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="56" count="4" type="stmt"/>
-        <line num="57" count="4" type="stmt"/>
-        <line num="58" count="4" type="stmt"/>
-        <line num="59" count="4" type="stmt"/>
-        <line num="60" count="4" type="stmt"/>
-        <line num="61" count="4" type="stmt"/>
-        <line num="62" count="4" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="56" count="11" type="stmt"/>
+        <line num="57" count="11" type="stmt"/>
+        <line num="58" count="11" type="stmt"/>
+        <line num="59" count="11" type="stmt"/>
+        <line num="60" count="11" type="stmt"/>
+        <line num="61" count="11" type="stmt"/>
+        <line num="62" count="11" type="stmt"/>
       </file>
       <file name="UserContext.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/contexts/UserContext.tsx">
-        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="19" count="12" type="stmt"/>
+        <line num="25" count="20" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="28" count="12" type="stmt"/>
       </file>
     </package>
     <package name="commons.repositories">
@@ -246,41 +246,41 @@
       <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="AlertMessage.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/components/common/alert/AlertMessage.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="21" type="stmt"/>
-        <line num="7" count="31" type="stmt"/>
-        <line num="9" count="31" type="stmt"/>
-        <line num="11" count="31" type="stmt"/>
-        <line num="12" count="26" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="5" type="stmt"/>
-        <line num="20" count="31" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="28" type="stmt"/>
+        <line num="7" count="42" type="stmt"/>
+        <line num="9" count="42" type="stmt"/>
+        <line num="11" count="42" type="stmt"/>
+        <line num="12" count="35" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="20" count="42" type="stmt"/>
       </file>
     </package>
     <package name="components.common.inputs.NormalInput">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="NormalInput.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/components/common/inputs/NormalInput/NormalInput.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="11" count="200" type="stmt"/>
-        <line num="16" count="200" type="stmt"/>
-        <line num="22" count="523" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="11" count="220" type="stmt"/>
+        <line num="16" count="220" type="stmt"/>
+        <line num="22" count="553" type="stmt"/>
       </file>
     </package>
     <package name="components.common.items.userItem">
-      <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="UserItem.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/components/common/items/userItem/UserItem.tsx">
-        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="13" count="24" type="stmt"/>
+        <line num="14" count="24" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="24" count="24" type="stmt"/>
       </file>
     </package>
     <package name="components.common.layout">
@@ -497,63 +497,67 @@
       </file>
     </package>
     <package name="components.unit.chat.create">
-      <metrics statements="51" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="12" coveredmethods="0"/>
+      <metrics statements="55" coveredstatements="55" conditionals="14" coveredconditionals="13" methods="13" coveredmethods="13"/>
       <file name="CreateOpenChat.container.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/components/unit/chat/create/CreateOpenChat.container.tsx">
-        <metrics statements="37" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="51" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
+        <metrics statements="40" coveredstatements="40" conditionals="14" coveredconditionals="13" methods="9" coveredmethods="9"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="12" count="20" type="stmt"/>
+        <line num="14" count="20" type="stmt"/>
+        <line num="16" count="20" type="stmt"/>
+        <line num="17" count="20" type="stmt"/>
+        <line num="18" count="20" type="stmt"/>
+        <line num="19" count="20" type="stmt"/>
+        <line num="20" count="20" type="stmt"/>
+        <line num="22" count="20" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="26" count="3" type="cond" truecount="3" falsecount="0"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="38" count="24" type="stmt"/>
+        <line num="39" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="20" type="stmt"/>
+        <line num="49" count="7" type="stmt"/>
+        <line num="50" count="7" type="stmt"/>
+        <line num="51" count="7" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="60" count="7" type="stmt"/>
+        <line num="64" count="20" type="stmt"/>
       </file>
       <file name="CreateOpenChat.presenter.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/components/unit/chat/create/CreateOpenChat.presenter.tsx">
-        <metrics statements="14" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="22" count="20" type="stmt"/>
+        <line num="29" count="20" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
+        <line num="40" count="20" type="stmt"/>
+        <line num="66" count="6" type="stmt"/>
+        <line num="78" count="24" type="stmt"/>
       </file>
     </package>
     <package name="components.unit.setting">

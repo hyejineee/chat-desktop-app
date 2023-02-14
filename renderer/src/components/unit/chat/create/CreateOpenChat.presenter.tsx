@@ -1,3 +1,4 @@
+import { TITLE_PLACEHOLDER } from '@constants/placeholder';
 import { UserType } from '@type/auth.types';
 import { Checkbox } from 'antd';
 import _ from 'lodash';
@@ -55,7 +56,7 @@ export default function CreateOpenChatUI({
         <NormalInput
           control={control}
           name='title'
-          placeholder='채팅방 제목을 입력해 주세요.'
+          placeholder={TITLE_PLACEHOLDER}
         />
       </S.InputWrapper>
 
