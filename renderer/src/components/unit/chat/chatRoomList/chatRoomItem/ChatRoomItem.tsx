@@ -1,7 +1,6 @@
 import { RoomType } from '@type/room.types';
 import randomColor from 'randomcolor';
 import { useMemo } from 'react';
-import moment from 'moment';
 import { CircleView } from '../../../../common/styles/common.styles';
 import * as S from './ChatRoomItem.styles';
 
@@ -9,6 +8,8 @@ type ChatRoomItemPropsType = {
   room: RoomType;
 };
 export default function ChatRoomItem({ room }: ChatRoomItemPropsType) {
+
+  console.log(room);
   const color = useMemo(
     () =>
       randomColor({

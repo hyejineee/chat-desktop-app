@@ -16,6 +16,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import moment from 'moment';
 import { string } from 'yup/lib/locale';
 
 export default class RoomDataSource {
@@ -107,15 +108,19 @@ export default class RoomDataSource {
           (userDoc: any) => userDoc.data() as UserType,
         );
 
+        const messages = e.data().messages.map((message: any) => ({
+          ...message,
+          timestamp: moment(message.timestamp.toDate()).format('YYYY.MM.DD'),
+        }));
+
         return {
           ...e.data(),
           users,
+          messages,
           uid: e.id,
         } as RoomType;
       }),
     );
-
-    console.log(result);
 
     return result;
   }
@@ -130,7 +135,11 @@ export default class RoomDataSource {
     const rooms: RoomType[] = [];
 
     roomsRef.forEach(ref => {
-      rooms.push({ ...ref.data(), uid: ref.id } as RoomType);
+      const messages = ref.data().messages.map((message: any) => ({
+        ...message,
+        timestamp: moment(message.timestamp.toDate()).format('YYYY.MM.DD'),
+      }));
+      rooms.push({ ...ref.data(), messages, uid: ref.id } as RoomType);
     });
 
     return rooms;
