@@ -24,8 +24,10 @@ const customJestConfig = {
     '!renderer/pages/',
     '!renderer/src/commons/settings/*.[jt]s?(x)',
     '!renderer/src/commons/dataSources/**/*.[jt]s?(x)',
+    '!renderer/src/commons/repositories/**/*.[jt]s?(x)',
     '!renderer/src/commons/constants/*.[jt]s?(x)',
     '!renderer/src/commons/utils/*.[jt]s?(x)',
+    '!renderer/src/commons/type/container.ts',
     '!**/*.styles.[jt]s?(x)',
     '!**/*.types.[jt]s?(x)',
   ],
@@ -37,7 +39,10 @@ const customJestConfig = {
       lines: 80,
     },
   },
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', 'jest-plugin-context/setup'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    'jest-plugin-context/setup',
+  ],
   setupFiles: ['jest-plugin-context/setup'],
   verbose: true,
 };

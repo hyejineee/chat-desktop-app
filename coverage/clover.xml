@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676440169717" clover="3.2.0">
-  <project timestamp="1676440169717" name="All files">
-    <metrics statements="483" coveredstatements="331" conditionals="115" coveredconditionals="59" methods="145" coveredmethods="98" elements="743" coveredelements="488" complexity="0" loc="483" ncloc="483" packages="16" files="28" classes="28"/>
+<coverage generated="1676441886371" clover="3.2.0">
+  <project timestamp="1676441886371" name="All files">
+    <metrics statements="384" coveredstatements="343" conditionals="76" coveredconditionals="59" methods="119" coveredmethods="102" elements="579" coveredelements="504" complexity="0" loc="384" ncloc="384" packages="14" files="23" classes="23"/>
     <package name="commons.contexts">
-      <metrics statements="102" coveredstatements="87" conditionals="0" coveredconditionals="0" methods="66" coveredmethods="52"/>
+      <metrics statements="102" coveredstatements="88" conditionals="0" coveredconditionals="0" methods="66" coveredmethods="54"/>
       <file name="AlertMessageContext.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/contexts/AlertMessageContext.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
         <line num="1" count="5" type="stmt"/>
@@ -19,28 +19,28 @@
         <line num="32" count="41" type="stmt"/>
       </file>
       <file name="AuthContext.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/contexts/AuthContext.tsx">
-        <metrics statements="21" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="13"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="18" count="21" type="stmt"/>
-        <line num="20" count="21" type="stmt"/>
-        <line num="22" count="21" type="stmt"/>
+        <metrics statements="21" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="15"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="22" count="22" type="stmt"/>
         <line num="23" count="3" type="stmt"/>
-        <line num="25" count="21" type="stmt"/>
-        <line num="27" count="21" type="stmt"/>
-        <line num="29" count="21" type="stmt"/>
-        <line num="39" count="21" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+        <line num="29" count="22" type="stmt"/>
+        <line num="39" count="22" type="stmt"/>
         <line num="40" count="25" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
         <line num="42" count="34" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="14" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="47" count="21" type="stmt"/>
-        <line num="48" count="21" type="stmt"/>
-        <line num="49" count="21" type="stmt"/>
-        <line num="50" count="21" type="stmt"/>
-        <line num="51" count="21" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="47" count="22" type="stmt"/>
+        <line num="48" count="22" type="stmt"/>
+        <line num="49" count="22" type="stmt"/>
+        <line num="50" count="22" type="stmt"/>
+        <line num="51" count="22" type="stmt"/>
       </file>
       <file name="MessageContext.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/contexts/MessageContext.tsx">
         <metrics statements="25" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="12"/>
@@ -120,126 +120,6 @@
         <line num="25" count="29" type="stmt"/>
         <line num="27" count="18" type="stmt"/>
         <line num="28" count="18" type="stmt"/>
-      </file>
-    </package>
-    <package name="commons.repositories">
-      <metrics statements="78" coveredstatements="0" conditionals="39" coveredconditionals="0" methods="25" coveredmethods="0"/>
-      <file name="AuthRepository.ts" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/repositories/AuthRepository.ts">
-        <metrics statements="24" coveredstatements="0" conditionals="11" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="54" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-      </file>
-      <file name="MessageRepository.ts" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/repositories/MessageRepository.ts">
-        <metrics statements="21" coveredstatements="0" conditionals="11" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-      </file>
-      <file name="RoomRepository.ts" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/repositories/RoomRepository.ts">
-        <metrics statements="20" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="53" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="55" count="0" type="stmt"/>
-      </file>
-      <file name="UserRepository.ts" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/repositories/UserRepository.ts">
-        <metrics statements="13" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="commons.type">
-      <metrics statements="21" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="container.ts" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/commons/type/container.ts">
-        <metrics statements="21" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
       </file>
     </package>
     <package name="components.common.alert">
@@ -560,20 +440,20 @@
       </file>
     </package>
     <package name="components.unit.setting">
-      <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Setting.container.tsx" path="/Volumes/Samsung_T5/SubProject/maumlab-assignment/renderer/src/components/unit/setting/Setting.container.tsx">
-        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.unit.users">
