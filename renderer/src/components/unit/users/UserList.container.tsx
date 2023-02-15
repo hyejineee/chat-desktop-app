@@ -26,13 +26,17 @@ export default function UserListContainer() {
     };
 
   useEffect(() => {
-    try {
-      fetchAllUser();
-    } catch (e) {
-      if (e instanceof Error) {
-        showAlert('error', e.message);
+
+    (async function () {
+      try {
+        await fetchAllUser();
+      } catch (e) {
+        if (e instanceof Error) {
+          showAlert('error', e.message);
+        }
       }
-    }
+    })();
+    
   }, []);
 
   return (

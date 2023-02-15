@@ -50,7 +50,6 @@ export default function CreateOpenChatContainer() {
       try {
         await fetchAllUser();
       } catch (e) {
-        console.log('fetchUserError', e);
         if (e instanceof Error) {
           showAlert('error', e.message);
         }
