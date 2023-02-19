@@ -28,6 +28,7 @@ const customJestConfig = {
     '!renderer/src/commons/constants/*.[jt]s?(x)',
     '!renderer/src/commons/utils/*.[jt]s?(x)',
     '!renderer/src/commons/type/container.ts',
+    '!renderer/src/components/common/**/*.[jt]s?(x)',
     '!**/*.styles.[jt]s?(x)',
     '!**/*.types.[jt]s?(x)',
   ],
