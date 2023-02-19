@@ -1,5 +1,3 @@
-import { UserType } from '@type/auth.types';
-import { RoomType } from '@type/room.types';
 import {
   addDoc,
   arrayUnion,
@@ -17,7 +15,8 @@ import {
   where,
 } from 'firebase/firestore';
 import moment from 'moment';
-import { string } from 'yup/lib/locale';
+import { UserType } from '../type/auth.types';
+import { RoomType } from '../type/room.types';
 
 export default class RoomDataSource {
   private store: Firestore;
